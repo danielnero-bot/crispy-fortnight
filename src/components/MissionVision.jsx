@@ -1,13 +1,15 @@
+import { FaBookOpen, FaEye } from "react-icons/fa6";
+
 const defaultCards = [
   {
-    icon: "menu_book",
+    icon: FaBookOpen,
     title: "Our Mission",
     accent: "border-tertiary-fixed-dim",
     iconColor: "text-tertiary-fixed-dim",
     text: "To provide high-quality education in a safe, caring, and healthy environment in collaboration with families, the church, and society, instilling discipline and developing global leaders.",
   },
   {
-    icon: "visibility",
+    icon: FaEye,
     title: "Our Vision",
     accent: "border-secondary",
     iconColor: "text-secondary",
@@ -25,11 +27,10 @@ export default function MissionVision({ cards = defaultCards }) {
             className={`bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_rgba(0,35,71,0.05)] border-t-2 ${card.accent}`}
           >
             <div className="flex items-center gap-3 mb-6">
-              <span
-                className={`material-symbols-outlined text-3xl ${card.iconColor}`}
-              >
-                {card.icon}
-              </span>
+              <card.icon
+                className={`text-3xl ${card.iconColor}`}
+                aria-hidden="true"
+              />
               <h3 className="font-headline-sm text-headline-sm text-primary">
                 {card.title}
               </h3>

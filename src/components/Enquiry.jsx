@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from "react";
+import { FaEnvelope, FaLocationDot, FaPhone } from "react-icons/fa6";
 
 export default function EnquirySection() {
   const [formData, setFormData] = useState({
-    parentName: '',
-    studentName: '',
-    email: '',
-    phone: '',
-    currentClass: 'Select Class',
-    boardingPref: 'Full Boarding',
-    message: '',
+    parentName: "",
+    studentName: "",
+    email: "",
+    phone: "",
+    currentClass: "Select Class",
+    boardingPref: "Full Boarding",
+    message: "",
   });
 
   const handleChange = (e) => {
@@ -21,34 +22,58 @@ export default function EnquirySection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Info */}
           <div>
-            <h2 className="font-headline-md text-headline-md text-primary mb-6">Admissions Office</h2>
+            <h2 className="font-headline-md text-headline-md text-primary mb-6">
+              Admissions Office
+            </h2>
             <p className="font-body-md text-body-md text-on-surface-variant mb-8">
-              Our admissions team is here to guide you through every step. Please reach out with any questions or submit an enquiry below.
+              Our admissions team is here to guide you through every step.
+              Please reach out with any questions or submit an enquiry below.
             </p>
             <div className="space-y-6">
               <div className="flex items-start">
-                <span className="material-symbols-outlined text-secondary mr-4">location_on</span>
+                <FaLocationDot
+                  className="mr-4 mt-1 shrink-0 text-secondary"
+                  aria-hidden="true"
+                />
                 <div>
-                  <h4 className="font-label-caps text-label-caps text-primary mb-1">Location</h4>
+                  <h4 className="font-label-caps text-label-caps text-primary mb-1">
+                    Location
+                  </h4>
                   <p className="font-body-md text-body-md text-on-surface-variant">
-                    Archdeacon Crowther Memorial Girls' School<br />
-                    Elelenwo, Port Harcourt<br />
+                    Archdeacon Crowther Memorial Girls' School
+                    <br />
+                    Elelenwo, Port Harcourt
+                    <br />
                     Rivers State, Nigeria
                   </p>
                 </div>
               </div>
               <div className="flex items-start">
-                <span className="material-symbols-outlined text-secondary mr-4">mail</span>
+                <FaEnvelope
+                  className="mr-4 mt-1 shrink-0 text-secondary"
+                  aria-hidden="true"
+                />
                 <div>
-                  <h4 className="font-label-caps text-label-caps text-primary mb-1">Email</h4>
-                  <p className="font-body-md text-body-md text-on-surface-variant">admissions@acmgs.edu.ng</p>
+                  <h4 className="font-label-caps text-label-caps text-primary mb-1">
+                    Email
+                  </h4>
+                  <p className="font-body-md text-body-md text-on-surface-variant">
+                    admissions@acmgs.edu.ng
+                  </p>
                 </div>
               </div>
               <div className="flex items-start">
-                <span className="material-symbols-outlined text-secondary mr-4">call</span>
+                <FaPhone
+                  className="mr-4 mt-1 shrink-0 text-secondary"
+                  aria-hidden="true"
+                />
                 <div>
-                  <h4 className="font-label-caps text-label-caps text-primary mb-1">Phone</h4>
-                  <p className="font-body-md text-body-md text-on-surface-variant">+234 (0) 800 000 0000</p>
+                  <h4 className="font-label-caps text-label-caps text-primary mb-1">
+                    Phone
+                  </h4>
+                  <p className="font-body-md text-body-md text-on-surface-variant">
+                    +234 (0) 800 000 0000
+                  </p>
                 </div>
               </div>
             </div>
@@ -63,11 +88,16 @@ export default function EnquirySection() {
 
           {/* Form */}
           <div className="bg-surface-container-lowest p-8 md:p-10 rounded-xl custom-shadow border-t-2 border-tertiary-fixed-dim">
-            <h3 className="font-headline-sm text-headline-sm text-primary mb-6">Make an Enquiry</h3>
+            <h3 className="font-headline-sm text-headline-sm text-primary mb-6">
+              Make an Enquiry
+            </h3>
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block font-label-caps text-label-caps text-primary mb-2" htmlFor="parentName">
+                  <label
+                    className="block font-label-caps text-label-caps text-primary mb-2"
+                    htmlFor="parentName"
+                  >
                     Parent/Guardian Name
                   </label>
                   <input
@@ -80,7 +110,10 @@ export default function EnquirySection() {
                   />
                 </div>
                 <div>
-                  <label className="block font-label-caps text-label-caps text-primary mb-2" htmlFor="studentName">
+                  <label
+                    className="block font-label-caps text-label-caps text-primary mb-2"
+                    htmlFor="studentName"
+                  >
                     Student Name
                   </label>
                   <input
@@ -96,7 +129,10 @@ export default function EnquirySection() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block font-label-caps text-label-caps text-primary mb-2" htmlFor="email">
+                  <label
+                    className="block font-label-caps text-label-caps text-primary mb-2"
+                    htmlFor="email"
+                  >
                     Email Address
                   </label>
                   <input
@@ -109,7 +145,10 @@ export default function EnquirySection() {
                   />
                 </div>
                 <div>
-                  <label className="block font-label-caps text-label-caps text-primary mb-2" htmlFor="phone">
+                  <label
+                    className="block font-label-caps text-label-caps text-primary mb-2"
+                    htmlFor="phone"
+                  >
                     Phone Number
                   </label>
                   <input
@@ -125,7 +164,10 @@ export default function EnquirySection() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block font-label-caps text-label-caps text-primary mb-2" htmlFor="currentClass">
+                  <label
+                    className="block font-label-caps text-label-caps text-primary mb-2"
+                    htmlFor="currentClass"
+                  >
                     Current Class
                   </label>
                   <select
@@ -141,7 +183,10 @@ export default function EnquirySection() {
                   </select>
                 </div>
                 <div>
-                  <label className="block font-label-caps text-label-caps text-primary mb-2" htmlFor="boardingPref">
+                  <label
+                    className="block font-label-caps text-label-caps text-primary mb-2"
+                    htmlFor="boardingPref"
+                  >
                     Boarding Preference
                   </label>
                   <select
@@ -157,7 +202,10 @@ export default function EnquirySection() {
               </div>
 
               <div>
-                <label className="block font-label-caps text-label-caps text-primary mb-2" htmlFor="message">
+                <label
+                  className="block font-label-caps text-label-caps text-primary mb-2"
+                  htmlFor="message"
+                >
                   Message / Questions
                 </label>
                 <textarea

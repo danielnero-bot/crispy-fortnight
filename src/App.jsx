@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Academics from "./pages/Academics";
 import Admissions from "./pages/Admissions";
+import BoardingPage from "./pages/BoardingPage";
+import StudentLife from "./pages/Student-Life";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/academics" element={<Academics />} />
         <Route path="/admissions" element={<Admissions />} />
+        <Route path="/boarding" element={<BoardingPage />} />
+        <Route path="/student-life" element={<StudentLife />} />
       </Routes>
     </BrowserRouter>
   );

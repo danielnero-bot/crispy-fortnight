@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { FaMinus, FaPlus } from "react-icons/fa6";
 
 const faqs = [
   {
@@ -48,9 +49,17 @@ export default function FaqSection() {
                   <span className="font-headline-sm text-headline-sm text-[18px] text-primary">
                     {faq.question}
                   </span>
-                  <span className="material-symbols-outlined text-secondary transition-transform">
-                    {isOpen ? "remove" : "add"}
-                  </span>
+                  {isOpen ? (
+                    <FaMinus
+                      className="shrink-0 text-secondary"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <FaPlus
+                      className="shrink-0 text-secondary"
+                      aria-hidden="true"
+                    />
+                  )}
                 </button>
                 {isOpen && (
                   <div className="px-6 py-4 border-t border-surface-dim bg-surface">

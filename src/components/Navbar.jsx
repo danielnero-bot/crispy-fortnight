@@ -8,8 +8,8 @@ const navLinks = [
   { name: "About", href: "/about" },
   { name: "Academics", href: "/academics" },
   { name: "Admissions", href: "/admissions" },
-  { name: "Boarding", href: "#boarding" },
-  { name: "Student Life", href: "#student-life" },
+  { name: "Boarding", href: "/boarding" },
+  { name: "Student Life", href: "/student-life" },
 ];
 
 export default function Navbar() {

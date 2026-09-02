@@ -1,3 +1,5 @@
+import { FaArrowRight, FaComputer } from "react-icons/fa6";
+
 const defaultFacilities = [
   {
     type: "image",
@@ -66,9 +68,10 @@ function FacilityTile({ facility }) {
         }`}
       >
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="material-symbols-outlined text-on-primary-container text-6xl opacity-20">
-            {icon}
-          </span>
+          <FaComputer
+            className="text-6xl text-on-primary-container opacity-40"
+            aria-hidden="true"
+          />
         </div>
         <div className="absolute bottom-0 left-0 p-6 z-10">
           <h3 className="font-headline-sm text-headline-sm text-on-primary mb-2">
@@ -80,9 +83,7 @@ function FacilityTile({ facility }) {
               className="font-label-caps text-label-caps text-tertiary-fixed hover:text-white transition-colors flex items-center gap-1"
             >
               {linkLabel}
-              <span className="material-symbols-outlined text-sm">
-                arrow_forward
-              </span>
+              <FaArrowRight className="text-sm" aria-hidden="true" />
             </a>
           )}
         </div>

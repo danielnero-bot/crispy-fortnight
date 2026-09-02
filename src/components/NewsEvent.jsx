@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { FaArrowRight } from "react-icons/fa6";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,10 +82,7 @@ export default function NewsEvents({ items = newsItems, onViewAll }) {
             onClick={onViewAll}
             className="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors flex items-center gap-1"
           >
-            View All{" "}
-            <span className="material-symbols-outlined text-[16px]">
-              arrow_forward
-            </span>
+            View All <FaArrowRight className="text-[16px]" aria-hidden="true" />
           </a>
         </div>
 

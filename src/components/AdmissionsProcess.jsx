@@ -1,3 +1,5 @@
+import { FaDiamond } from "react-icons/fa6";
+
 const requirements = [
   "Admission form obtained from the school administration or official portal.",
   "Entrance examination completed by the candidate.",
@@ -37,9 +39,7 @@ export default function AdmissionsProcess() {
             <ul className="space-y-4 font-body-md text-body-md text-on-surface-variant relative z-10">
               {requirements.map((req, idx) => (
                 <li key={idx} className="flex items-start">
-                  <span className="material-symbols-outlined text-tertiary-fixed-dim mr-3 mt-0.5">
-                    diamond
-                  </span>
+                  <FaDiamond className="mr-3 mt-1 shrink-0 text-tertiary-fixed-dim" aria-hidden="true" />
                   <span>{req}</span>
                 </li>
               ))}

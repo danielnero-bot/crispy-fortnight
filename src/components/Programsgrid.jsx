@@ -1,4 +1,4 @@
-import React from "react";
+import { FaBookOpen, FaSchool } from "react-icons/fa6";
 
 const defaultPathways = [
   {
@@ -43,9 +43,10 @@ export default function ProgramsGrid({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
           {/* Junior Secondary */}
           <div className="bg-surface rounded p-8 card-shadow border-t-2 border-on-tertiary-container hover:shadow-lg transition-shadow duration-300">
-            <span className="material-symbols-outlined text-secondary mb-6 text-4xl">
-              menu_book
-            </span>
+            <FaBookOpen
+              className="mb-6 text-4xl text-secondary"
+              aria-hidden="true"
+            />
             <h3 className="font-headline-sm text-headline-sm text-primary mb-4">
               Junior Secondary
             </h3>
@@ -68,9 +69,10 @@ export default function ProgramsGrid({
           <div className="bg-surface rounded p-8 card-shadow border-t-2 border-on-tertiary-container hover:shadow-lg transition-shadow duration-300 md:col-span-2">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-1">
-                <span className="material-symbols-outlined text-secondary mb-6 text-4xl">
-                  school
-                </span>
+                <FaSchool
+                  className="mb-6 text-4xl text-secondary"
+                  aria-hidden="true"
+                />
                 <h3 className="font-headline-sm text-headline-sm text-primary mb-4">
                   Senior Secondary
                 </h3>

@@ -77,7 +77,11 @@ export default function Footer({
             {brand}
           </span>
           <p className="font-body-md text-body-md text-surface-variant/80 mt-4 text-sm">
-            © {year} {schoolName}. All Rights Reserved.
+            {schoolName} · School Road, Elelenwo, Port Harcourt, Rivers State,
+            Nigeria
+          </p>
+          <p className="font-body-md text-body-md text-surface-variant/80 mt-3 text-sm">
+            © {year} ACMGS. All Rights Reserved.
           </p>
         </div>
 

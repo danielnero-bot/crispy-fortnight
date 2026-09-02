@@ -10,7 +10,7 @@ const features = [
     icon: BookOpen,
     title: "Academic Excellence",
     description:
-      "Rigorous curriculum designed to challenge and inspire, preparing students for top universities globally.",
+      "A Nigerian National Curriculum integrated with ACSI standards across JSS and SSS.",
   },
   {
     icon: Church,
@@ -22,7 +22,7 @@ const features = [
     icon: Trophy,
     title: "Leadership Focus",
     description:
-      "Providing abundant opportunities for young women to take charge, initiate projects, and find their confident voices.",
+      "Developing disciplined, capable young women prepared to become global leaders.",
   },
   {
     icon: House,
@@ -34,7 +34,7 @@ const features = [
     icon: Users,
     title: "Strong Community & Holistic Development",
     description:
-      "Beyond the classroom, our vibrant arts, sports, and community service programs ensure every girl discovers her unique talents and purpose within a supportive, deeply connected school family.",
+      "A safe, caring, and healthy environment where families, church, and society support each student's growth.",
     large: true,
   },
 ];

@@ -1,7 +1,7 @@
 export default function AboutHero({
   eyebrow = "Our Heritage",
-  title = "A Legacy of Christian Excellence",
-  description = "Founded in 1943 by the Christian Missionary Society, Archdeacon Crowther Memorial Girls' School stands as a beacon of academic rigor and moral fortitude, shaping generations of female leaders.",
+  title = "Fidelis in minimis",
+  description = "Archdeacon Crowther Memorial Girls' School is an Anglican day and boarding secondary school in Elelenwo, Port Harcourt, Rivers State, Nigeria.",
 }) {
   return (
     <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-16 pb-24 text-center">

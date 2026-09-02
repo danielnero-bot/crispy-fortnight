@@ -6,8 +6,8 @@ import { Link, NavLink } from "react-router-dom";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Academics", href: "#academics" },
-  { name: "Admissions", href: "#admissions" },
+  { name: "Academics", href: "/academics" },
+  { name: "Admissions", href: "/admissions" },
   { name: "Boarding", href: "#boarding" },
   { name: "Student Life", href: "#student-life" },
 ];
@@ -63,13 +63,13 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <ul className="hidden items-center space-x-8 md:flex">
-          {navLinks.map((link, index) => (
+          {navLinks.map((link) => (
             <li key={link.name}>
               <NavLink
                 to={link.href}
                 end={link.href === "/"}
-                className={
-                  index === 0
+                className={({ isActive }) =>
+                  isActive
                     ? "border-b-2 border-secondary pb-1 text-xs font-semibold uppercase tracking-[0.1em] text-secondary transition-all duration-300"
                     : "text-xs font-semibold uppercase tracking-[0.1em] text-primary transition-colors duration-300 hover:text-secondary"
                 }
@@ -83,7 +83,7 @@ export default function Navbar() {
         {/* Desktop Apply Button */}
         <div className="hidden md:block">
           <a
-            href="/#admissions"
+            href="/admissions"
             className="gold-glow inline-flex items-center justify-center border border-transparent bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-on-primary transition-colors duration-300 hover:border-on-tertiary-container hover:bg-secondary"
           >
             Apply Now
@@ -112,7 +112,11 @@ export default function Navbar() {
                   to={link.href}
                   end={link.href === "/"}
                   onClick={() => setIsOpen(false)}
-                  className="block text-sm font-semibold uppercase tracking-[0.1em] text-primary transition-colors hover:text-secondary"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "block w-fit border-b-2 border-secondary pb-1 text-sm font-semibold uppercase tracking-[0.1em] text-secondary transition-colors"
+                      : "block w-fit text-sm font-semibold uppercase tracking-[0.1em] text-primary transition-colors hover:text-secondary"
+                  }
                 >
                   {link.name}
                 </NavLink>
@@ -121,7 +125,7 @@ export default function Navbar() {
 
             <li className="pt-2">
               <a
-                href="/#admissions"
+                href="/admissions"
                 onClick={() => setIsOpen(false)}
                 className="gold-glow inline-flex w-full items-center justify-center bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-on-primary transition-colors hover:bg-secondary"
               >

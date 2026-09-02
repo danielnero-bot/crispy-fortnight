@@ -4,14 +4,14 @@ const defaultCards = [
     title: "Our Mission",
     accent: "border-tertiary-fixed-dim",
     iconColor: "text-tertiary-fixed-dim",
-    text: "To provide a rigorous, globally competitive education grounded in deep Christian values. We are committed to nurturing the intellectual, spiritual, and moral capacities of young women, equipping them to lead with integrity, compassion, and excellence in service to God and humanity.",
+    text: "To provide high-quality education in a safe, caring, and healthy environment in collaboration with families, the church, and society, instilling discipline and developing global leaders.",
   },
   {
     icon: "visibility",
     title: "Our Vision",
     accent: "border-secondary",
     iconColor: "text-secondary",
-    text: "To be the preeminent Christian educational institution in Africa for girls, universally recognized for shaping visionary female leaders who embody the principles of Archdeacon Crowther—courage, scholarship, and unwavering faith.",
+    text: "To attain Educational, Moral and Spiritual excellence in Christ (Luke 2:52).",
   },
 ];
 

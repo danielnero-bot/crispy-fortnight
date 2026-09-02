@@ -117,7 +117,7 @@ export default function Hero() {
             }}
             className="mb-6 inline-block border border-surface/30 bg-surface-container-highest/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-on-primary backdrop-blur-sm"
           >
-            Established 1943
+            Fidelis in minimis
           </span>
 
           {/* Heading */}
@@ -127,7 +127,7 @@ export default function Hero() {
             }}
             className="mb-6 font-display text-[32px] font-bold leading-[1.2] tracking-tight text-on-primary md:text-[48px] md:leading-[1.1]"
           >
-            Building Young Women of Excellence, Character &amp; Leadership.
+            Educational, moral and spiritual excellence in Christ.
           </h1>
 
           {/* Description */}
@@ -137,10 +137,9 @@ export default function Hero() {
             }}
             className="mb-10 max-w-2xl font-body text-lg leading-[1.6] text-surface-container-highest"
           >
-            For over 80 years, Archdeacon Crowther Memorial Girls&apos; School
-            has nurtured generations of female leaders through rigorous
-            academics and unwavering Christian values in a serene, historic
-            environment.
+            Archdeacon Crowther Memorial Girls&apos; School is an Anglican
+            all-girls day and boarding secondary school in Elelenwo, Port
+            Harcourt, Rivers State.
           </p>
 
           {/* Buttons */}
@@ -167,7 +166,7 @@ export default function Hero() {
               href="#admissions"
               className="inline-flex items-center justify-center border border-on-primary bg-transparent px-8 py-4 text-xs font-semibold uppercase tracking-[0.1em] text-on-primary transition-colors duration-300 hover:bg-on-primary hover:text-primary"
             >
-              Admissions
+              Explore Admissions
             </a>
           </div>
         </div>

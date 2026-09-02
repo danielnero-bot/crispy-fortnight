@@ -8,9 +8,9 @@ const newsItems = [
   {
     category: "Academics",
     date: "Oct 15, 2024",
-    title: "Students Excel in National Science Olympiad",
+    title: "Academic Life at ACMGS",
     description:
-      "Our senior science team secured top honors at the annual national competition, showcasing our commitment to STEM education.",
+      "Explore the academic structure, subjects, and pathways available across Junior and Senior Secondary School.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAPjDgrV2FFFgjhFiOG_ZgTw7FWuaSOxTiQTXGjMO33TgsAWK0BVjl8-VhPkFjB4PqXYOX4_dEDGCi1iMpkSQbEmopvuXmmvZfBwpv2gXneJS1rsMPVWoC4Vmz0RoMl_dQUUB-NcTnbaYtiM-FK66l6Em7LP2OKp5k2cXpPcypidlki4HuXxKMeg9yppBklw0RA3YfJxt5UnzObM8tE43PE5k3d9Yjkt4HRF4a8XtL6LM6fgX3pm4en4Q",
     alt: "Students in a science laboratory wearing lab coats, working with beakers and microscopes.",
@@ -18,9 +18,9 @@ const newsItems = [
   {
     category: "Community",
     date: "Oct 08, 2024",
-    title: "Annual Founders' Day Service & Concert",
+    title: "Christian Formation",
     description:
-      "Join us as we celebrate 81 years of educational excellence and faith with a special choral performance.",
+      "Discover an education shaped by the school's Christian mission and Anglican affiliation.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAd2rouLQvyNPD-VmPF2FcQiAz8zyjBmy2t9-2oVSRgkVB_VDZklKZzt4Q3vuxw3L1ZHVdp1KlA7EuK_cbxp0UDo7qiTgnjgH-pCq8h38Vl_FZ-I_79GN2o5Q9mjTrqYYSWk0jqyzZSBFftU1zSIgVeXzrJkxQvSfffJuFhGSH0GCkIXQ9j0FzBpbXyVYwcX6uOpfhPdZkbuc13OKre9J0U-80EZQLghfZCclJy9rsGetRhSHcTcEhxkw",
     alt: "School choir performing in robes inside a historic chapel with stained glass windows.",
@@ -28,9 +28,9 @@ const newsItems = [
   {
     category: "Sports",
     date: "Sep 28, 2024",
-    title: "Regional Athletics Championship Victory",
+    title: "Admissions Information",
     description:
-      "The ACMGS track and field team brings home the regional trophy after a weekend of outstanding performances.",
+      "Entrance examination and candidate interview are required for admission to ACMGS.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCwWep7M0TadDadtsGSVIhZYPiaUHhuEAbLTCbq9L_mvwj4YCBoMX1EyTTwhfzfXDN4I5qT7n6HZncbkICYYSlLx8xj7KMrHms1f83aAYw5v-bPHhQQA7Frf8G-tfYEOewwkbLdOGg-EtYRbv9frU4y01tSnFDu6KTHLauuWL6PmcsZ2E-sHdA7WE2PAn0ZY-nSD6QBrd68G59ejmjaECSmbix6TPYfYHfV1zLYuO5G44XxVOBg5u7qgw",
     alt: "Female student athlete serving a tennis ball on an outdoor court.",

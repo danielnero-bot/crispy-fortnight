@@ -6,16 +6,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
   {
-    value: "80+",
-    label: "Years of Heritage",
+    value: "1943",
+    label: "Year Established",
   },
   {
-    value: "100%",
-    label: "Commitment to Excellence",
+    value: "JSS–SSS",
+    label: "Secondary Education",
   },
   {
-    value: "Faith",
-    label: "Rooted in Christian Values",
+    value: "Day + Boarding",
+    label: "School Type",
   },
 ];
 
@@ -74,7 +74,7 @@ export default function Heritage() {
     <section ref={sectionRef} id="about" className="bg-surface py-20">
       <div className="mx-auto max-w-[1280px] px-4 text-center md:px-16">
         <h2 className="mx-auto mb-12 max-w-4xl font-display text-[32px] font-semibold leading-[1.3] text-primary">
-          A Legacy of Excellence Since 1943
+          A Christian education for girls since 1943
         </h2>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

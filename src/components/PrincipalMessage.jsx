@@ -77,11 +77,11 @@ export default function PrincipalMessage() {
           {/* Text */}
           <div className="mt-12 lg:col-span-7 lg:mt-0 lg:pl-12">
             <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.1em] text-on-tertiary-container">
-              Welcome to ACMGS
+              From the Principal
             </span>
 
             <h2 className="mb-8 font-display text-[32px] font-semibold leading-[1.3] text-primary">
-              A Tradition of Shaping Visionary Women
+              Education grounded in faith and purpose
             </h2>
 
             <div
@@ -93,10 +93,9 @@ export default function PrincipalMessage() {
                 className="font-display text-xl italic leading-[1.5] text-on-surface-variant"
               >
                 {[
-                  "Our mission extends beyond academic brilliance; it is deeply",
-                  "rooted in cultivating the character and moral fortitude",
-                  "necessary for our young women to navigate and lead in a",
-                  "complex world. We invite you to become part of this extraordinary legacy.",
+                  "To provide high-quality education in a safe, caring, and healthy",
+                  "environment in collaboration with families, the church, and",
+                  "society, instilling discipline and developing global leaders.",
                 ].map((line, index) => (
                   <span
                     key={line}
@@ -106,7 +105,7 @@ export default function PrincipalMessage() {
                     className="block"
                   >
                     {index === 0 ? `"${line}` : line}
-                    {index === 3 ? '"' : ""}
+                    {index === 2 ? '"' : ""}
                   </span>
                 ))}
               </p>
@@ -114,7 +113,7 @@ export default function PrincipalMessage() {
 
             <div>
               <p className="font-body text-lg font-bold text-primary">
-                Dr. Jane Doe
+                Mrs. Chinyere Uchenna Ordu, JP
               </p>
 
               <p className="mt-1 text-xs font-semibold uppercase tracking-[0.1em] text-on-surface-variant">

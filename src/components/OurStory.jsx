@@ -1,6 +1,6 @@
 const defaultParagraphs = [
-  "Archdeacon Crowther Memorial Girls' School (ACMGS) was established in 1943 by the Christian Missionary Society (CMS) of the Anglican Communion. The institution was founded with a profound vision: to provide a sanctuary of holistic, Christian education for girls in an era when such opportunities were scarce.",
-  "Named in honor of Archdeacon Dandeson Coates Crowther, a towering figure in the Anglican Communion and the son of Bishop Samuel Ajayi Crowther (the first African Anglican bishop), the school inherited a mandate to champion both intellectual enlightenment and unwavering moral character. From its very inception, ACMGS was designed to be more than a school; it was intended to be a crucible for female leadership, rooted deeply in faith.",
+  "Archdeacon Crowther Memorial Girls' School (ACMGS) was established in 1943 and is affiliated with the Anglican Communion through the Diocese of Evo, Church of Nigeria.",
+  "Located on School Road in Elelenwo, Port Harcourt, Rivers State, ACMGS provides all-girls day and boarding secondary education grounded in Christian values.",
 ];
 
 export default function OurStory({

@@ -1,28 +1,28 @@
 const defaultItems = [
   {
     year: "1943",
-    text: "School established by the Christian Missionary Society.",
+    text: "Archdeacon Crowther Memorial Girls' School established.",
   },
   {
-    year: "Early Years",
-    text: "Pioneering Girls' Christian education in the region, focusing on holistic development.",
+    year: "Affiliation",
+    text: "Anglican Communion, Diocese of Evo, Church of Nigeria.",
   },
   {
-    year: "Mid-Century",
-    text: "Government administration era, maintaining academic standards amid structural changes.",
+    year: "Location",
+    text: "School Road, Elelenwo, Port Harcourt, Rivers State, Nigeria.",
   },
   {
-    year: "Revitalization",
-    text: "Return to mission administration, restoring the core Christian values and original vision.",
+    year: "School Type",
+    text: "All-girls secondary school offering day and boarding education.",
   },
   {
-    year: "Present Day",
-    text: "Modern ACMGS, blending historic traditions with contemporary educational excellence.",
+    year: "Academics",
+    text: "Junior and Senior Secondary School education across Science, Arts, and Commercial tracks.",
     dotHover: "group-hover:bg-secondary",
   },
   {
-    year: "The Future",
-    text: "Continuing to shape visionary female leaders for a rapidly changing world.",
+    year: "Mission",
+    text: "Developing disciplined global leaders through high-quality education in Christ.",
     muted: true,
   },
 ];

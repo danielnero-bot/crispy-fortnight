@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #000d21;
+  --color-primary-container: #002347;
+  --color-secondary: #a53843;
+  --color-secondary-container: #fd7a84;
+
+  --color-surface: #fbf9f4;
+  --color-surface-container: #f0eee9;
+  --color-surface-container-low: #f5f3ee;
+  --color-surface-container-high: #eae8e3;
+  --color-surface-container-highest: #e4e2dd;
+  --color-surface-container-lowest: #ffffff;
+
+  --color-on-primary: #ffffff;
+  --color-on-surface: #1b1c19;
+  --color-on-surface-variant: #43474e;
+
+  --color-outline: #74777f;
+  --color-outline-variant: #c4c6cf;
+
+  --color-tertiary: #140b00;
+  --color-tertiary-container: #302000;
+  --color-tertiary-fixed: #ffdea5;
+  --color-on-tertiary-container: #a78541;
+
+  --font-display: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+
+  --spacing-gutter: 24px;
+  --spacing-section-padding: 80px;
+  --spacing-margin-mobile: 16px;
+  --spacing-margin-desktop: 64px;
+
+  --radius-default: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #fbf9f4;
+  color: #1b1c19;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.glass-panel {
+  background: rgba(251, 249, 244, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.gold-glow {
+  box-shadow: 0 4px 15px rgba(167, 133, 65, 0.15);
+}

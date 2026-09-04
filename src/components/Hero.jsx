@@ -100,7 +100,7 @@ export default function Hero() {
           className="h-full w-full origin-center bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDq4qrXakuNSlPxjukIwuy6IYtlEruiph5oOlQqNVRQ0CitfM49G2MxNbPcd0FBN2q6ElZb9hqOJi6o4JcXjyjhnzHTwq_eCQCT_AsgJbV8rw_zzrBt8BvGs9Ho-fntWx5s1bvNyD92H7upx26pTkutO4WRr_bLzQ0XXykUrpJxdVPjPDryDLmFKym8RYZSJhsfge36Li2AXqp5U0h19lzwQG_09ZHpOm-3Wp4KES5t9USu8XaPW1Jvtw')",
+              "url('https://scontent.fabb1-3.fna.fbcdn.net/v/t39.30808-6/562341157_1239246761553662_7837163170606290418_n.jpg?stp=dst-jpg_tt6&cstp=mx1252x834&ctp=s1252x834&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=b1fzplob8PYQ7kNvwH6Rq_t&_nc_oc=Ado6EqMbveUD32PZvSF5qiPlmZ8kUkO5cIXzSKWj6gO_LRS19HmwELOIhDxvG6JOJPDfK_erZ2dWerqrrBCvK8yp&_nc_zt=23&_nc_ht=scontent.fabb1-3.fna&_nc_gid=kgd26nVQKIJlV4IziEfcSg&_nc_ss=78289&oh=00_AQLnSVM-P4kTPJxaBxOt0sNLa1kyl_A75_CZ-68jZjWhDg&oe=6AA069F6')",
           }}
         />
 

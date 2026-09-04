@@ -59,8 +59,7 @@ export default function PrincipalMessage() {
             <div className="relative z-10 aspect-[4/5] w-full overflow-hidden border border-on-tertiary-container/20 bg-surface-container-high shadow-lg">
               <img
                 ref={imageRef}
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTkqRlWGzGiOng11ZBVwIbC6f8EL0qEItvKIVCiV42N8NYbnJ0lLBo7dOD0m1n6BbKpEc3MSoNB6PGPBXgvljXD6zksc4uXxuuDl5msezG0jzAAZdU8jNQn4O_EsGdElbnocGrO4-Zx1w3u2TM59rV2qHqF6EBMr8i0IZVbWPksRswVXVV8pfyTTCfQLmitAFjo5YNT5swaD6-hiB7p-PG5HGP1FDSMxEB7c1yLgUCqSpCFqscVtVpKA"
-                alt="Principal of Archdeacon Crowther Memorial Girls' School"
+                src="https://scontent.fabb1-3.fna.fbcdn.net/v/t39.30808-6/522624684_1173371928141146_8708216747425989669_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1080&ctp=s720x1080&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=jNLGkO6YLwMQ7kNvwHWCBRW&_nc_oc=AdqhQ7i6vD48VzGd9GdnVjonNNt6HCTTfDoUAoS6IfKCriQ0RAUA8N8CvoffrbcZGGDdERWRI9tgpoGlzTsaNpqz&_nc_zt=23&_nc_ht=scontent.fabb1-3.fna&_nc_gid=hA_ySHFZTXIIWLlvmrRSDA&_nc_ss=78289&oh=00_AQLW4A8TLhle8rW0fYsKVPSr7pF4OcE9tcO1xrmuLtVPUQ&oe=6AA06534"
                 className="h-full w-full object-cover"
               />
               <div

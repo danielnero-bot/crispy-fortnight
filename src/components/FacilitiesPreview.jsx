@@ -2,14 +2,14 @@ import { ArrowRight } from "lucide-react";
 
 export default function FacilitiesPreview() {
   return (
-    <section className="py-20 bg-slate-100">
+    <section id="facilities" className="py-20 bg-slate-100">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-end mb-12">
           <h2 className="font-serif text-3xl font-semibold text-slate-950">
             Facilities Preview
           </h2>
           <a
-            href="#"
+            href="/boarding#facilities"
             className="text-rose-700 text-xs font-semibold uppercase tracking-widest hover:text-slate-950 transition-colors flex items-center"
           >
             View All <ArrowRight className="w-4 h-4 ml-1" />

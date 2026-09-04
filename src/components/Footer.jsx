@@ -8,22 +8,22 @@ const footerLinkGroups = [
   {
     heading: "Explore",
     links: [
-      { label: "Admissions", href: "#" },
-      { label: "Alumni", href: "#" },
+      { label: "Admissions", href: "/admissions" },
+      { label: "Alumni", href: "/about" },
     ],
   },
   {
     heading: "Connect",
     links: [
-      { label: "Gallery", href: "#" },
-      { label: "Contact", href: "#" },
+      { label: "Gallery", href: "/student-life" },
+      { label: "Contact", href: "/admissions#apply" },
     ],
   },
   {
     heading: "Legal",
     links: [
-      { label: "Privacy Policy", href: "#" },
-      { label: "Terms of Service", href: "#" },
+      { label: "Privacy Policy", href: "/" },
+      { label: "Terms of Service", href: "/" },
     ],
   },
 ];

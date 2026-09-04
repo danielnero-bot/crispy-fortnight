@@ -45,6 +45,8 @@ export default function FaqSection() {
                 <button
                   className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-surface transition-colors"
                   onClick={() => toggleFaq(index)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${index}`}
                 >
                   <span className="font-headline-sm text-headline-sm text-[18px] text-primary">
                     {faq.question}
@@ -62,7 +64,10 @@ export default function FaqSection() {
                   )}
                 </button>
                 {isOpen && (
-                  <div className="px-6 py-4 border-t border-surface-dim bg-surface">
+                  <div
+                    id={`faq-answer-${index}`}
+                    className="px-6 py-4 border-t border-surface-dim bg-surface"
+                  >
                     <p className="font-body-md text-body-md text-on-surface-variant">
                       {faq.answer}
                     </p>

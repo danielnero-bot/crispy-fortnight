@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -149,25 +150,25 @@ export default function Hero() {
             }}
             className="flex flex-col gap-4 sm:flex-row"
           >
-            <a
+            <Link
               ref={(element) => {
                 buttonRefs.current[0] = element;
               }}
-              href="#about"
+              to="#about"
               className="inline-flex items-center justify-center border border-transparent bg-surface px-8 py-4 text-xs font-semibold uppercase tracking-[0.1em] text-primary transition-colors duration-300 hover:bg-surface-container"
             >
               Explore ACMGS
-            </a>
+            </Link>
 
-            <a
+            <Link
               ref={(element) => {
                 buttonRefs.current[1] = element;
               }}
-              href="#admissions"
+              to="/admissions"
               className="inline-flex items-center justify-center border border-on-primary bg-transparent px-8 py-4 text-xs font-semibold uppercase tracking-[0.1em] text-on-primary transition-colors duration-300 hover:bg-on-primary hover:text-primary"
             >
               Explore Admissions
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -24,12 +24,10 @@ export default function Home() {
     // Keep Lenis' virtual scroll position and ScrollTrigger's measurements in lockstep.
     const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
     const onScroll = () => ScrollTrigger.update();
-    const raf = (time) => {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    };
+    const onTick = (time) => lenis.raf(time * 1000);
     lenis.on("scroll", onScroll);
-    const frame = requestAnimationFrame(raf);
+    gsap.ticker.add(onTick);
+    gsap.ticker.lagSmoothing(0);
 
     const scroller = document.documentElement;
     ScrollTrigger.scrollerProxy(scroller, {
@@ -51,7 +49,7 @@ export default function Home() {
     ScrollTrigger.refresh();
 
     return () => {
-      cancelAnimationFrame(frame);
+      gsap.ticker.remove(onTick);
       lenis.destroy();
       ScrollTrigger.defaults({ scroller: window });
       ScrollTrigger.refresh();

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaEnvelope, FaLocationDot, FaPhone } from "react-icons/fa6";
 
 export default function EnquirySection() {
@@ -11,9 +11,36 @@ export default function EnquirySection() {
     boardingPref: "Full Boarding",
     message: "",
   });
+  const [formStatus, setFormStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const submitTimerRef = useRef(null);
+
+  useEffect(() => () => window.clearTimeout(submitTimerRef.current), []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
+    setFormStatus("");
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (
+      !formData.parentName ||
+      !formData.studentName ||
+      !formData.email ||
+      formData.currentClass === "Select Class"
+    ) {
+      setFormStatus("Please complete the required fields before submitting.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    submitTimerRef.current = window.setTimeout(() => {
+      setIsSubmitting(false);
+      setFormStatus(
+        "Your enquiry has been recorded. The admissions office can follow up using the details provided.",
+      );
+    }, 500);
   };
 
   return (
@@ -58,7 +85,7 @@ export default function EnquirySection() {
                     Email
                   </h4>
                   <p className="font-body-md text-body-md text-on-surface-variant">
-                    admissions@acmgs.edu.ng
+                    Contact the school administration
                   </p>
                 </div>
               </div>
@@ -72,7 +99,7 @@ export default function EnquirySection() {
                     Phone
                   </h4>
                   <p className="font-body-md text-body-md text-on-surface-variant">
-                    +234 (0) 800 000 0000
+                    Phone details available from the school administration
                   </p>
                 </div>
               </div>
@@ -91,7 +118,7 @@ export default function EnquirySection() {
             <h3 className="font-headline-sm text-headline-sm text-primary mb-6">
               Make an Enquiry
             </h3>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit} noValidate>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label
@@ -103,10 +130,11 @@ export default function EnquirySection() {
                   <input
                     className="w-full bg-surface border-outline-variant rounded p-3 font-body-md text-body-md focus:ring-0 transition-colors"
                     id="parentName"
-                    placeholder="Jane Doe"
+                    placeholder="Parent or guardian name"
                     type="text"
                     value={formData.parentName}
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 <div>
@@ -123,6 +151,7 @@ export default function EnquirySection() {
                     type="text"
                     value={formData.studentName}
                     onChange={handleChange}
+                    required
                   />
                 </div>
               </div>
@@ -138,10 +167,11 @@ export default function EnquirySection() {
                   <input
                     className="w-full bg-surface border-outline-variant rounded p-3 font-body-md text-body-md focus:ring-0 transition-colors"
                     id="email"
-                    placeholder="jane@example.com"
+                    placeholder="your@email.com"
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 <div>
@@ -175,6 +205,7 @@ export default function EnquirySection() {
                     id="currentClass"
                     value={formData.currentClass}
                     onChange={handleChange}
+                    required
                   >
                     <option>Select Class</option>
                     <option>JSS 1</option>
@@ -220,10 +251,16 @@ export default function EnquirySection() {
 
               <button
                 className="w-full bg-primary text-on-primary font-label-caps text-label-caps px-6 py-4 rounded border-2 border-tertiary-fixed-dim hover:bg-secondary transition-colors duration-300 gold-glow mt-4"
-                type="button"
+                type="submit"
+                disabled={isSubmitting}
               >
-                Submit Enquiry
+                {isSubmitting ? "Submitting..." : "Submit Enquiry"}
               </button>
+              {formStatus && (
+                <p className="text-sm text-on-surface-variant" role="status">
+                  {formStatus}
+                </p>
+              )}
             </form>
           </div>
         </div>

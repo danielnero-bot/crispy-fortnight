@@ -78,7 +78,7 @@ export default function NewsEvents({ items = newsItems, onViewAll }) {
             Latest News &amp; Events
           </h2>
           <a
-            href="#"
+            href="/student-life"
             onClick={onViewAll}
             className="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors flex items-center gap-1"
           >

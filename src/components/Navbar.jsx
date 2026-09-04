@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Menu, X } from "lucide-react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -15,6 +15,11 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -82,12 +87,12 @@ export default function Navbar() {
 
         {/* Desktop Apply Button */}
         <div className="hidden md:block">
-          <a
-            href="/admissions"
+          <Link
+            to="/admissions"
             className="gold-glow inline-flex items-center justify-center border border-transparent bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-on-primary transition-colors duration-300 hover:border-on-tertiary-container hover:bg-secondary"
           >
             Apply Now
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -124,13 +129,13 @@ export default function Navbar() {
             ))}
 
             <li className="pt-2">
-              <a
-                href="/admissions"
+              <Link
+                to="/admissions"
                 onClick={() => setIsOpen(false)}
                 className="gold-glow inline-flex w-full items-center justify-center bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-on-primary transition-colors hover:bg-secondary"
               >
                 Apply Now
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

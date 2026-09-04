@@ -23,7 +23,7 @@ const newsItems = [
     description:
       "Discover an education shaped by the school's Christian mission and Anglican affiliation.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAd2rouLQvyNPD-VmPF2FcQiAz8zyjBmy2t9-2oVSRgkVB_VDZklKZzt4Q3vuxw3L1ZHVdp1KlA7EuK_cbxp0UDo7qiTgnjgH-pCq8h38Vl_FZ-I_79GN2o5Q9mjTrqYYSWk0jqyzZSBFftU1zSIgVeXzrJkxQvSfffJuFhGSH0GCkIXQ9j0FzBpbXyVYwcX6uOpfhPdZkbuc13OKre9J0U-80EZQLghfZCclJy9rsGetRhSHcTcEhxkw",
+      "https://scontent.fabb1-2.fna.fbcdn.net/v/t39.30808-6/489410115_1087404116737928_2241706423675807908_n.jpg?stp=dst-jpg_tt6&cstp=mx1280x854&ctp=s1280x854&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=leTqHSc8u8QQ7kNvwEaKCka&_nc_oc=Adq8rKtFu7IlK3pWpZ4VRh3wRZiJc4m36FouR5-5lWuRCazvYG8uH0K65hsWrNE48kKFx-_CSwTRK24Rpu_nXrOs&_nc_zt=23&_nc_ht=scontent.fabb1-2.fna&_nc_gid=MoRpkZjg5NF7lyspdRwjcA&_nc_ss=7b289&oh=00_AQKN-Gba4Wz2KSb-bjZfaUGYqIb20JgAB_ZMCMVhgaxDng&oe=6AA06EA0",
     alt: "School choir performing in robes inside a historic chapel with stained glass windows.",
   },
   {

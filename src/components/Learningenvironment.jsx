@@ -13,7 +13,7 @@ const defaultFacilities = [
     type: "image",
     title: "Science Laboratories",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBHk3bHXhdF1UxR53dOttQQTOUQgUBDewyCUIbSr6PRYfqcBlJsu9lJFFINEpXadYf33ty81GKa2gj934E1KKLqgl3O0UPsNl4-xk6SP4dY3mmeGdsYmtqiiVQZYVBkIosVSTsSTDlUhNJN4OhECv2AKqIjdijfYGnYuIEQgTJ1xl46pLARmzXjHEu77Taebd6Wht0meVmFDkXHff4j-OH94KyXfubhzVA_TQgQyLEmoEhKI82zb507VA",
+      "https://scontent.fabb1-2.fna.fbcdn.net/v/t39.30808-6/488563357_1083739757104364_7985617616037423708_n.jpg?stp=dst-jpg_tt6&cstp=mx1344x1008&ctp=s1344x1008&_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=AheSZLA3hm4Q7kNvwGw4mT2&_nc_oc=Adr1ThtuyWMYkYE2FBmbqU9iNOqYcT4pY6nAKRglvMD57RF_-aeeXNkjZlKX6ehAFEE_PMh2PJMwYerG9d3gUc-g&_nc_zt=23&_nc_ht=scontent.fabb1-2.fna&_nc_gid=Av8n0bn2W-DEAF7tWEggkA&_nc_ss=7b289&oh=00_AQLDJCmY4oItUZ5QbAXQ2CbY7MTBTcJgmXdUyHxyvd4GiA&oe=6AA0680A",
     span: "md:col-span-2",
   },
   {

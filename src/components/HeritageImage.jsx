@@ -1,5 +1,5 @@
 export default function HeritageImage({
-  src = "https://lh3.googleusercontent.com/aida-public/AB6AXuC3FtiQSVr9HZ0UWrjOEa9FBrH9n-eLVPYtSpJTcI8PtDx9lTdJjj2-Dbc4cjhTdJ7SRbX95_10E5col1j-vnaAPXcYGUADlp5nOdWg9h86Rc5VtHnAkjNG98KvnwjBTL7_OtXozD4u9VfUIIjz6i3CMtmP-7v30LUyooL6EFOxKpFu4OD2UCFHrNIfBf9FCWPy0H45eFgrj_EJt5VMDXpxH1dEZ9aX7UTbg8YUPRPpi8RTOUK8eEGL9g",
+  src = "https://scontent.fabb1-2.fna.fbcdn.net/v/t39.30808-6/488550235_1083739800437693_6202897360043229570_n.jpg?stp=dst-jpg_tt6&cstp=mx621x1104&ctp=s621x1104&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=s0H5mo8AANQQ7kNvwHMVZ0s&_nc_oc=AdqKSyfWQPiv-fdPIU_3oDxfTGJTmHPOIEOY2XfTwsKv8JozJPY5VGEJQRoqcccx7o56tbYtObgtuuPlRwFsgyV2&_nc_zt=23&_nc_ht=scontent.fabb1-2.fna&_nc_gid=8ua_pouO2pSQo2nqSwyTWA&_nc_ss=78289&oh=00_AQKEkZcC9FWiFIjz0BV5fqP1-cNGSIZBbShabpHkC5KGcw&oe=6AA073E7",
   alt = "Archival image of ACMGS",
 }) {
   return (

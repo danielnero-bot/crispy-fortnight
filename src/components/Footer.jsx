@@ -76,11 +76,11 @@ export default function Footer({
           <span className="font-headline-md text-headline-md text-on-primary mb-4 block tracking-tight">
             {brand}
           </span>
-          <p className="font-body-md text-body-md text-surface-variant/80 mt-4 text-sm">
+          <p className="font-body-md text-body-md text-on-primary/80 mt-4 text-sm">
             {schoolName} · School Road, Elelenwo, Port Harcourt, Rivers State,
             Nigeria
           </p>
-          <p className="font-body-md text-body-md text-surface-variant/80 mt-3 text-sm">
+          <p className="font-body-md text-body-md text-on-primary/80 mt-3 text-sm">
             © {year} ACMGS. All Rights Reserved.
           </p>
         </div>
@@ -93,7 +93,7 @@ export default function Footer({
             }}
             key={group.heading}
           >
-            <h4 className="font-label-caps text-label-caps text-on-tertiary-container mb-6 uppercase tracking-widest">
+            <h4 className="font-label-caps text-label-caps text-on-primary mb-6 uppercase tracking-widest">
               {group.heading}
             </h4>
             <ul className="space-y-4">
@@ -101,7 +101,7 @@ export default function Footer({
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="font-body-md text-body-md text-surface-variant hover:text-tertiary-fixed hover:translate-x-1 transition-all duration-200 block opacity-90 hover:opacity-100"
+                    className="font-body-md text-body-md text-on-primary/80 hover:text-tertiary-fixed hover:translate-x-1 transition-all duration-200 block opacity-90 hover:opacity-100"
                   >
                     {link.label}
                   </a>

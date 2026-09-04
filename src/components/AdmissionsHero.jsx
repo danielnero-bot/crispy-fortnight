@@ -6,7 +6,7 @@ export default function AdmissionsHero() {
           className="w-full h-full bg-cover bg-center opacity-40"
           style={{
             backgroundImage:
-              "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDUXHOYsxtX-TpR73lqE7qtiSSsYIUCirvN9tkk4AaMD59MRNe-_1vaQncnzVWCYFu6dIh7dnXd9Gdlzvsu5EeiGNOB7vkWSXlMMqm37w5B21x40uITRXpw3x8NhrA9-bdVmMdW4h5g2UOSmppgLdoDezS6y_6sivyGA3Qb--0-lgMjQVU4uwyQwWmcxtrAPTNEbYV9UF4KuA7R7DBipUJ0jDw7DpBfTi6_M9l8rBkvsX5LlZ9tkQDyxA')",
+              "url('https://scontent.fabb1-2.fna.fbcdn.net/v/t39.30808-6/488600126_1083737687104571_1641801398342205129_n.jpg?stp=dst-jpg_tt6&cstp=mx1072x712&ctp=s1072x712&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=76-GmcWE-XkQ7kNvwFhSDui&_nc_oc=AdpgaNsygeC3j2ej4JH7Z2hEITf5cT0Jl9bx-QYdpMvdYWxCCkzeUU95MFNgZguUuAxgJMp2a1PVpzLcFuHMHEup&_nc_zt=23&_nc_ht=scontent.fabb1-2.fna&_nc_gid=PRq-HMqHEEEoaIlLwGOEFQ&_nc_ss=7b289&oh=00_AQKhRk62WyrsXApe4dS81cKDElA4Yn0WXC3_kGg6Z7GpzQ&oe=6AA08C20')",
           }}
         ></div>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>

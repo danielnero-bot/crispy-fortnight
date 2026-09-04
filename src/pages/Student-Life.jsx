@@ -10,7 +10,7 @@ const clubData = [
       "Developing articulate leaders through rigorous discourse, public speaking, and creative writing.",
     icon: FaMicrophone,
     bgImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuB7bPuv2u1rzgjxnHXXM7KMi9UbnJhpbfSklSDKCa7zdHJwPXbOd5fDwIXJ1pRYjWjOZHyNYt5cStfDW2d9a1EZFI5bUnOaqo71lQoR4LT0GDGJ2usYAUYqi9WjMdh0BpgIHBvwBtqY6uEdN-pPSGCTBrgARW3qMqUOvtNPiv2AhqO3fqRCZS74OEqTONUzDtzV6frv-uEbDWb9XaS789g2MzSNLetmoXm9DKxkEEc050HJ937vMK5smA",
+      "https://scontent.fabb1-2.fna.fbcdn.net/v/t39.30808-6/488722346_1083737697104570_3033658876029240317_n.jpg?stp=dst-jpg_tt6&cstp=mx1072x712&ctp=s1072x712&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=XUP19PAsSjAQ7kNvwEVjv_w&_nc_oc=AdqsR1DMVWKl_BDa28ld1AhmY6_x0iAiHORiw2uUGlDLCTvTYoUr5phzYsLh5C_qdtk0n5fEwH93eTl2j9UjBKwo&_nc_zt=23&_nc_ht=scontent.fabb1-2.fna&_nc_gid=i-rnYkp2CKXVVR-DEQuBvw&_nc_ss=78289&oh=00_AQJ0cXTFm3x3YkwTIB9U1w71WpCBI1yATM9V4YI6vrixCA&oe=6AA06E16",
     isLarge: true,
   },
   {

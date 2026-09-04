@@ -5,6 +5,7 @@ import Academics from "./pages/Academics";
 import Admissions from "./pages/Admissions";
 import BoardingPage from "./pages/BoardingPage";
 import StudentLife from "./pages/Student-Life";
+import ManagementPage from "./pages/Management";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/admissions" element={<Admissions />} />
         <Route path="/boarding" element={<BoardingPage />} />
         <Route path="/student-life" element={<StudentLife />} />
+        <Route path="/management" element={<ManagementPage />} />
       </Routes>
     </BrowserRouter>
   );

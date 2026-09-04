@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Admissions", href: "/admissions" },
   { name: "Boarding", href: "/boarding" },
   { name: "Student Life", href: "/student-life" },
+  { name: "Management", href: "/management" },
 ];
 
 export default function Navbar() {

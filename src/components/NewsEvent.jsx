@@ -33,7 +33,7 @@ const newsItems = [
     description:
       "Entrance examination and candidate interview are required for admission to ACMGS.",
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCwWep7M0TadDadtsGSVIhZYPiaUHhuEAbLTCbq9L_mvwj4YCBoMX1EyTTwhfzfXDN4I5qT7n6HZncbkICYYSlLx8xj7KMrHms1f83aAYw5v-bPHhQQA7Frf8G-tfYEOewwkbLdOGg-EtYRbv9frU4y01tSnFDu6KTHLauuWL6PmcsZ2E-sHdA7WE2PAn0ZY-nSD6QBrd68G59ejmjaECSmbix6TPYfYHfV1zLYuO5G44XxVOBg5u7qgw",
+      "https://scontent.fabb1-2.fna.fbcdn.net/v/t39.30808-6/487854967_1082667067211633_534893828012860021_n.jpg?stp=dst-jpg_tt6&cstp=mx720x481&ctp=s720x481&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=6hGHdePIIy4Q7kNvwFb5qZA&_nc_oc=AdrshJg6UklqMh5UFd9XBd5EczZsNJdfNNmht1Rv9Sq8fxDP9NCBsF-OSVSd2TYflOhK-BHD6RS37X5K4aUrb6q_&_nc_zt=23&_nc_ht=scontent.fabb1-2.fna&_nc_gid=8oteSqJgnALGwyd7MRT2IQ&_nc_ss=7b289&oh=00_AQKTU07ffBb0b_BNaPc630T-83kmytM_ULIpjOen2H63Gg&oe=6AA07296",
     alt: "Female student athlete serving a tennis ball on an outdoor court.",
   },
 ];

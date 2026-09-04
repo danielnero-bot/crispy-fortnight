@@ -43,7 +43,7 @@ const clubData = [
       "Exploring visual arts, drama, and design in spaces built for boundless imagination.",
     icon: FaPalette,
     bgImage:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuADxGARZY5oRUEbTTjRTddg-9bexhD-7sxNA9jWSyy8cvK_hV34F8bsS-g4ogM10SQke7VS5ZivcGG8HbBOMX4DrsCHQY1-Kl4Q6XQa3n0rZqsiOY9jPUV7wYTDuozsyfLQzeCWP597eutHEBj523d2jDgrfImZ3zJ79B9yw8BMjASb57htmQzmUWXRIuOL6r-F6NzZxWumMqB2rd2K97KdgWMQz6_fkj3TPeMdABA5qsbZcDbQuhRo7A",
+      "https://scontent.flos5-3.fna.fbcdn.net/v/t39.30808-6/486169164_1073947344750272_7687674114487325698_n.jpg?stp=dst-jpg_tt6&cstp=mx720x481&ctp=s720x481&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=2Mkx4xkEkJQQ7kNvwE39lZm&_nc_oc=AdqXJfZe0HUztsot7vxTbdzuG1cr4MLC-MLcVAXH2u8W2FmDwNjbmMyiLQgKZycGgPo&_nc_zt=23&_nc_ht=scontent.flos5-3.fna&_nc_gid=n1GiwP7qYLPfSW0HoXgsdg&_nc_ss=7b289&oh=00_AQJovuZO43vWTJ-_y8_AR3AzFQPUmfYzvSwM8rB__tCQEQ&oe=6AA0668E",
     isWide: true,
   },
 ];

@@ -37,12 +37,12 @@ export default function FacilitiesPreview() {
             <div
               className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{
-                backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuAkjo2Y_2Cr6brwH7ceWlIOwFz2PjbtXhlcuoR3Wj5tzzBU9127PVIeHLPl_IbJl2etWzAOgiuSbQIaWGrwFP_cZsHs5BNsiVpMR-qobC8Af0JHmoz0Sgq9XYdlmhunN76ERGf_b2P-ZJFmwVi6mCnD6f0GsrtpZHxDDyUHvLVPhD2gb8eELaY5Y2Sj9eNglLB-L4AYPyzwAR9ytZ6odXI10CZuUK6qoC9GqtjjFglDWlSHTtxnMtEemQ')`,
+                backgroundImage: `url('https://scontent.fabb1-3.fna.fbcdn.net/v/t39.30808-6/487393150_1080954724049534_4215360547681382886_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1367&ctp=s2048x1367&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=hEz5-W1GXioQ7kNvwFBfkxD&_nc_oc=Adq3zq_H0Va1Da5nvofnewelmvIRBDhhmFyvuxdAu1X0bzhPSMewvFlT7-faqqHlcuu4fho4IYiRxGASK3czL3M4&_nc_zt=23&_nc_ht=scontent.fabb1-3.fna&_nc_gid=-p-IBoxU6Z4Z5GKK2_tphQ&_nc_ss=7b289&oh=00_AQJSpCnW0LvBh8sxIQI75AkAAcQluzPuXo0sV8ST0iaRbQ&oe=6AA068D4')`,
               }}
             ></div>
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent flex items-end p-6">
               <h3 className="font-serif text-xl font-semibold text-white">
-                Dining Hall & Kitchen
+                Kitchens
               </h3>
             </div>
           </div>

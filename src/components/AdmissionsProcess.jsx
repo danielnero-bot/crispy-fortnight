@@ -27,44 +27,44 @@ const steps = [
 
 export default function AdmissionsProcess() {
   return (
-    <section className="py-[80px] bg-surface">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-16">
+    <section className="py-16 sm:py-20 md:py-24 bg-surface">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Requirements */}
-          <div className="lg:col-span-5 bg-surface-container-lowest p-8 md:p-12 rounded-xl custom-shadow border border-surface-dim relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary-fixed/20 rounded-bl-full -mr-8 -mt-8"></div>
-            <h2 className="font-headline-md text-headline-md text-primary mb-6 relative z-10">
+          <div className="lg:col-span-5 bg-surface-container-lowest p-6 sm:p-8 md:p-10 rounded-xl shadow-sm border border-outline-variant/40 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary-fixed/20 rounded-bl-full -mr-8 -mt-8 pointer-events-none" />
+            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-primary mb-6 relative z-10">
               Admissions Requirements
             </h2>
-            <ul className="space-y-4 font-body-md text-body-md text-on-surface-variant relative z-10">
+            <ul className="space-y-4 font-body text-sm sm:text-base text-on-surface-variant relative z-10">
               {requirements.map((req, idx) => (
                 <li key={idx} className="flex items-start">
-                  <FaDiamond className="mr-3 mt-1 shrink-0 text-tertiary-fixed-dim" aria-hidden="true" />
-                  <span>{req}</span>
+                  <FaDiamond className="mr-3 mt-1.5 shrink-0 text-secondary text-xs" aria-hidden="true" />
+                  <span className="leading-relaxed">{req}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Timeline */}
-          <div className="lg:col-span-7 bg-surface-container-lowest p-8 md:p-12 rounded-xl custom-shadow border border-surface-dim">
-            <h2 className="font-headline-md text-headline-md text-primary mb-8">
+          <div className="lg:col-span-7 bg-surface-container-lowest p-6 sm:p-8 md:p-10 rounded-xl shadow-sm border border-outline-variant/40">
+            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-primary mb-8">
               The Application Process
             </h2>
-            <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-surface-dim">
+            <div className="space-y-6 sm:space-y-8 relative before:absolute before:inset-0 before:left-5 before:w-0.5 md:before:left-1/2 before:bg-outline-variant/40 before:h-full">
               {steps.map((item, idx) => (
                 <div
                   key={idx}
                   className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
                 >
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-surface-container-lowest bg-primary text-on-primary font-label-caps text-label-caps shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-surface-container-lowest bg-primary text-on-primary text-xs font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
                     {item.step}
                   </div>
-                  <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-lg bg-surface border border-surface-dim group-hover:border-tertiary-fixed-dim transition-colors">
-                    <h4 className="font-headline-sm text-headline-sm text-primary mb-1 text-[18px]">
+                  <div className="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-lg bg-surface border border-outline-variant/40 group-hover:border-secondary transition-colors">
+                    <h4 className="font-display text-base sm:text-lg font-semibold text-primary mb-1">
                       {item.title}
                     </h4>
-                    <p className="font-body-md text-body-md text-on-surface-variant text-sm">
+                    <p className="font-body text-xs sm:text-sm text-on-surface-variant leading-relaxed">
                       {item.description}
                     </p>
                   </div>

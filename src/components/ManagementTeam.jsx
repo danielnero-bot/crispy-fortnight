@@ -34,32 +34,32 @@ const team = [
 
 export default function ManagementTeam() {
   return (
-    <section className="max-w-container-max mx-auto px-margin-mobile py-section-padding md:px-margin-desktop">
-      <div className="mb-12 text-center">
-        <p className="font-label-caps text-label-caps text-secondary mb-4 uppercase tracking-[0.2em]">
-          School Leadership & Administration
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <div className="mb-10 sm:mb-16 text-center">
+        <p className="text-xs font-semibold text-secondary mb-3 uppercase tracking-[0.2em]">
+          School Leadership &amp; Administration
         </p>
-        <h2 className="font-headline-md text-headline-md text-primary">
+        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-primary">
           Leadership committed to excellence, discipline, and service
         </h2>
       </div>
 
-      <div className="grid gap-gutter md:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-2">
         {team.map(({ role, name, bio, icon: Icon }) => (
           <div
             key={role}
-            className="rounded-xl border border-outline-variant/60 bg-surface-container-lowest p-6 shadow-[0_4px_20px_rgba(0,35,71,0.04)] transition-transform duration-300 hover:-translate-y-1"
+            className="rounded-xl border border-outline-variant/60 bg-surface-container-lowest p-6 sm:p-8 shadow-sm transition-transform duration-300 hover:-translate-y-1"
           >
             <div className="mb-5 inline-flex rounded-full bg-primary/8 p-3 text-secondary">
               <Icon className="text-2xl" aria-hidden="true" />
             </div>
-            <p className="mb-2 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-[0.12em]">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-secondary">
               {role}
             </p>
-            <h3 className="mb-4 font-headline-sm text-headline-sm text-primary">
+            <h3 className="mb-3 font-display text-xl sm:text-2xl font-semibold text-primary">
               {name}
             </h3>
-            <p className="font-body-md text-body-md text-on-surface-variant">
+            <p className="font-body text-sm sm:text-base text-on-surface-variant leading-relaxed">
               {bio}
             </p>
           </div>

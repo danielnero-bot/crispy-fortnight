@@ -70,23 +70,23 @@ export default function NewsEvents({ items = newsItems, onViewAll }) {
   return (
     <section
       ref={sectionRef}
-      className="py-section-padding bg-surface-container"
+      className="py-16 sm:py-20 md:py-24 bg-surface-container"
     >
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-        <div className="flex justify-between items-end mb-12 border-b border-outline-variant/30 pb-6">
-          <h2 className="font-headline-md text-headline-md text-primary">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-12 border-b border-outline-variant/30 pb-6">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-primary">
             Latest News &amp; Events
           </h2>
           <a
             href="/student-life"
             onClick={onViewAll}
-            className="font-label-caps text-label-caps text-secondary hover:text-primary transition-colors flex items-center gap-1"
+            className="inline-flex min-h-[44px] items-center gap-2 text-xs font-semibold uppercase tracking-[0.1em] text-secondary hover:text-primary transition-colors py-2"
           >
-            View All <FaArrowRight className="text-[16px]" aria-hidden="true" />
+            View All <FaArrowRight className="text-sm" aria-hidden="true" />
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map((item, idx) => (
             <NewsCard
               key={idx}
@@ -158,9 +158,9 @@ function NewsCard({ category, date, title, description, image, alt, cardRef }) {
   return (
     <article
       ref={cardRef}
-      className="bg-surface group cursor-pointer border border-transparent hover:border-on-tertiary-container/30 transition-colors duration-300"
+      className="bg-surface group cursor-pointer rounded-lg overflow-hidden border border-transparent hover:border-on-tertiary-container/30 transition-colors duration-300 shadow-sm"
     >
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 sm:h-52 overflow-hidden">
         <img
           ref={imageRef}
           className="w-full h-full object-cover"
@@ -175,14 +175,14 @@ function NewsCard({ category, date, title, description, image, alt, cardRef }) {
           {category}
         </div>
       </div>
-      <div className="p-6">
-        <span className="font-label-caps text-label-caps text-on-tertiary-container mb-3 block">
+      <div className="p-5 sm:p-6">
+        <span className="text-xs font-semibold uppercase tracking-[0.1em] text-on-tertiary-container mb-2.5 block">
           {category} • {date}
         </span>
-        <h3 className="font-headline-sm text-headline-sm text-primary mb-3 group-hover:text-secondary transition-colors">
+        <h3 className="font-display text-lg sm:text-xl font-semibold text-primary mb-2.5 group-hover:text-secondary transition-colors">
           {title}
         </h3>
-        <p className="font-body-md text-body-md text-on-surface-variant line-clamp-2">
+        <p className="font-body text-sm leading-relaxed text-on-surface-variant line-clamp-2">
           {description}
         </p>
       </div>

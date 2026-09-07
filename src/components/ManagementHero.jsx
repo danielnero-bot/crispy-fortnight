@@ -6,15 +6,15 @@ export default function ManagementHero({
   return (
     <section className="relative overflow-hidden bg-primary">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,222,165,0.18),_transparent_45%)]" />
-      <div className="relative mx-auto max-w-container-max px-margin-mobile py-section-padding md:px-margin-desktop">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <div className="mx-auto max-w-5xl text-center">
-          <span className="mb-4 block font-label-caps text-label-caps tracking-[0.2em] text-tertiary-fixed">
+          <span className="mb-3 sm:mb-4 block text-xs font-semibold uppercase tracking-[0.2em] text-tertiary-fixed">
             {eyebrow}
           </span>
-          <h1 className="font-display-lg-mobile text-display-lg-mobile text-on-primary md:font-display-lg md:text-display-lg">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-on-primary leading-tight">
             {title}
           </h1>
-          <p className="mx-auto mt-6 max-w-3xl font-body-lg text-body-lg text-on-primary/85">
+          <p className="mx-auto mt-6 max-w-3xl font-body text-base sm:text-lg text-on-primary/85 leading-relaxed">
             {description}
           </p>
         </div>

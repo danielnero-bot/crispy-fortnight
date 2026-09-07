@@ -44,38 +44,46 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-surface px-4 py-16">
-      <div className="w-full max-w-md rounded-2xl bg-surface-container-lowest p-8 shadow-[0_12px_40px_rgba(0,35,71,0.08)]">
-        <p className="mb-3 text-center font-label-caps text-label-caps uppercase tracking-[0.2em] text-secondary">
+    <div className="flex min-h-screen items-center justify-center bg-surface px-4 py-8 sm:py-12 md:py-16">
+      <div className="w-full max-w-md rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-6 sm:p-8 shadow-[0_12px_40px_rgba(0,35,71,0.08)]">
+        <div className="mb-4 text-center">
+          <a
+            href="/"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-secondary hover:text-primary transition-colors py-1 px-2 -ml-2 rounded"
+          >
+            ← Back to Home
+          </a>
+        </div>
+        <p className="mb-2 text-center text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
           ACMGS Portal
         </p>
-        <h1 className="mb-6 text-center font-headline-md text-headline-md text-primary">
+        <h1 className="mb-6 text-center font-display text-2xl sm:text-3xl font-bold text-primary">
           Sign in
         </h1>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
           <div>
-            <label className="mb-2 block font-body-md text-body-md text-primary">
+            <label className="mb-2 block text-sm font-medium text-primary">
               Email
             </label>
             <input
               type="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              className="w-full rounded-xl border border-outline-variant bg-white px-4 py-3 text-on-surface outline-none focus:border-secondary"
+              className="w-full min-h-[44px] h-11 rounded-xl border border-outline-variant bg-white px-4 py-2.5 text-base sm:text-sm text-on-surface outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all"
               required
             />
           </div>
 
           <div>
-            <label className="mb-2 block font-body-md text-body-md text-primary">
+            <label className="mb-2 block text-sm font-medium text-primary">
               Password
             </label>
             <input
               type="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              className="w-full rounded-xl border border-outline-variant bg-white px-4 py-3 text-on-surface outline-none focus:border-secondary"
+              className="w-full min-h-[44px] h-11 rounded-xl border border-outline-variant bg-white px-4 py-2.5 text-base sm:text-sm text-on-surface outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all"
               required
             />
           </div>
@@ -89,13 +97,13 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl bg-primary px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-on-primary transition-colors hover:bg-secondary"
+            className="w-full min-h-[44px] h-11 flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-on-primary transition-colors hover:bg-secondary disabled:opacity-50"
           >
             {loading ? "Signing in..." : "Login"}
           </button>
         </form>
 
-        <div className="mt-6 rounded-xl bg-surface-container p-4 text-sm text-on-surface-variant">
+        <div className="mt-6 rounded-xl bg-surface-container p-4 text-xs sm:text-sm text-on-surface-variant">
           <p className="font-semibold text-primary">Demo accounts</p>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             <li>Teacher: teacher@acmgs.com / demo123</li>

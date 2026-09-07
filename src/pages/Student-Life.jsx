@@ -65,33 +65,34 @@ export default function StudentLifePage() {
   }, []);
 
   return (
-    <div className="bg-background text-on-background font-body-md antialiased min-h-screen">
+    <div className="min-h-screen bg-surface text-on-surface font-body antialiased overflow-x-hidden">
       <Navbar />
-      <main className="pt-24 pb-20">
+      <main className="pt-20 pb-16 sm:pb-20">
         <section
           ref={heroRef}
-          className="relative overflow-hidden bg-primary px-4 py-24 text-center text-on-primary md:px-16 md:py-32"
+          className="relative overflow-hidden bg-primary px-4 sm:px-6 lg:px-8 py-16 sm:py-24 md:py-32 text-center text-on-primary"
         >
           <div className="mx-auto max-w-4xl">
-            <span className="mb-5 block text-xs font-semibold uppercase tracking-[0.2em] text-tertiary-fixed">
+            <span className="mb-3 sm:mb-4 block text-xs font-semibold uppercase tracking-[0.2em] text-tertiary-fixed">
               Student Life at ACMGS
             </span>
-            <h1 className="font-display text-4xl font-semibold md:text-6xl">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Vibrant life beyond the classroom.
             </h1>
-            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-on-primary/85">
+            <p className="mx-auto mt-6 sm:mt-8 max-w-2xl text-base sm:text-lg leading-relaxed text-on-primary/85">
               A community of personal growth, creative expression, and lifelong
               sisterhood.
             </p>
           </div>
         </section>
-        <div className="mx-auto max-w-[1280px] space-y-20 px-4 md:px-16">
-          <section className="py-20">
-            <div className="mb-12 max-w-2xl">
-              <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
+
+        <div className="mx-auto max-w-7xl space-y-16 sm:space-y-20 px-4 sm:px-6 lg:px-8">
+          <section className="py-12 sm:py-16 md:py-20">
+            <div className="mb-10 sm:mb-12 max-w-2xl">
+              <span className="mb-3 sm:mb-4 block text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
                 Clubs and activities
               </span>
-              <h2 className="font-display text-4xl font-semibold text-primary">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-primary">
                 Find your voice, talent, and community.
               </h2>
             </div>
@@ -107,24 +108,26 @@ export default function StudentLifePage() {
                 }) => (
                   <article
                     key={title}
-                    className={`relative min-h-64 overflow-hidden rounded bg-primary-container p-8 text-on-primary ${isLarge || isWide ? "md:col-span-2" : ""}`}
+                    className={`relative min-h-[220px] sm:min-h-64 overflow-hidden rounded-xl bg-primary-container p-6 sm:p-8 text-on-primary shadow-sm ${isLarge || isWide ? "md:col-span-2" : ""}`}
                   >
                     {bgImage && (
                       <img
                         src={bgImage}
                         alt=""
-                        className="absolute inset-0 h-full w-full object-cover opacity-40"
+                        className="absolute inset-0 h-full w-full object-cover opacity-35"
                       />
                     )}
                     <div className="relative z-10 max-w-xl">
                       <Icon
-                        className="mb-6 text-3xl text-tertiary-fixed"
+                        className="mb-5 sm:mb-6 text-2xl sm:text-3xl text-tertiary-fixed"
                         aria-hidden="true"
                       />
-                      <h3 className="mb-3 font-display text-2xl font-semibold">
+                      <h3 className="mb-2 sm:mb-3 font-display text-xl sm:text-2xl font-semibold">
                         {title}
                       </h3>
-                      <p className="text-on-primary/80">{description}</p>
+                      <p className="font-body text-sm sm:text-base text-on-primary/85 leading-relaxed break-words">
+                        {description}
+                      </p>
                     </div>
                   </article>
                 ),

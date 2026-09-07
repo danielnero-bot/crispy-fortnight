@@ -20,30 +20,30 @@ const pillars = [
 
 export default function ManagementValues() {
   return (
-    <section className="bg-surface-container py-section-padding">
-      <div className="mx-auto max-w-container-max px-margin-mobile md:px-margin-desktop">
-        <div className="mb-12 text-center">
-          <p className="font-label-caps text-label-caps text-secondary mb-4 uppercase tracking-[0.2em]">
+    <section className="bg-surface-container py-16 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-10 sm:mb-12 text-center max-w-3xl mx-auto">
+          <p className="text-xs sm:text-sm font-semibold text-secondary mb-3 uppercase tracking-[0.2em]">
             Governance Focus
           </p>
-          <h2 className="font-headline-md text-headline-md text-primary">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-primary">
             Strategic oversight for academic excellence and student development
           </h2>
         </div>
 
-        <div className="grid gap-gutter md:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {pillars.map(({ icon: Icon, title, text }) => (
             <div
               key={title}
-              className="rounded-xl border border-outline-variant/60 bg-surface-container-lowest p-8 shadow-[0_4px_20px_rgba(0,35,71,0.04)]"
+              className="rounded-xl border border-outline-variant/60 bg-surface-container-lowest p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,35,71,0.04)]"
             >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary/8 text-secondary">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-secondary">
                 <Icon className="text-xl" aria-hidden="true" />
               </div>
-              <h3 className="mb-4 font-headline-sm text-headline-sm text-primary">
+              <h3 className="mb-3 font-display text-lg sm:text-xl font-bold text-primary">
                 {title}
               </h3>
-              <p className="font-body-md text-body-md text-on-surface-variant">
+              <p className="text-sm sm:text-base leading-relaxed text-on-surface-variant">
                 {text}
               </p>
             </div>

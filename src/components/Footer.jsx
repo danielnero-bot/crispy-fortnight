@@ -63,24 +63,24 @@ export default function Footer({
   return (
     <footer
       ref={footerRef}
-      className="w-full py-section-padding bg-primary dark:bg-primary-container relative"
+      className="w-full py-12 sm:py-16 md:py-20 bg-primary relative"
     >
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Brand & Copyright Col */}
         <div
           ref={(element) => {
             columnsRef.current[0] = element;
           }}
-          className="md:col-span-1"
+          className="sm:col-span-2 lg:col-span-1"
         >
-          <span className="font-headline-md text-headline-md text-on-primary mb-4 block tracking-tight">
+          <span className="font-display text-2xl sm:text-3xl font-bold text-on-primary mb-3 block tracking-tight">
             {brand}
           </span>
-          <p className="font-body-md text-body-md text-on-primary/80 mt-4 text-sm">
+          <p className="font-body text-on-primary/80 mt-3 text-sm leading-relaxed">
             {schoolName} · School Road, Elelenwo, Port Harcourt, Rivers State,
             Nigeria
           </p>
-          <p className="font-body-md text-body-md text-on-primary/80 mt-3 text-sm">
+          <p className="font-body text-on-primary/70 mt-3 text-xs sm:text-sm">
             © {year} ACMGS. All Rights Reserved.
           </p>
         </div>
@@ -93,15 +93,15 @@ export default function Footer({
             }}
             key={group.heading}
           >
-            <h4 className="font-label-caps text-label-caps text-on-primary mb-6 uppercase tracking-widest">
+            <h4 className="font-display text-xs font-semibold uppercase tracking-[0.15em] text-tertiary-fixed mb-4">
               {group.heading}
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-1">
               {group.links.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="font-body-md text-body-md text-on-primary/80 hover:text-tertiary-fixed hover:translate-x-1 transition-all duration-200 block opacity-90 hover:opacity-100"
+                    className="font-body text-sm text-on-primary/80 hover:text-tertiary-fixed transition-colors flex items-center min-h-[40px] py-1.5"
                   >
                     {link.label}
                   </a>

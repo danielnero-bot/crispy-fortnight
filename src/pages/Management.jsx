@@ -10,7 +10,7 @@ export default function ManagementPage() {
     <div className="bg-surface text-on-surface antialiased overflow-x-hidden">
       <Navbar />
 
-      <main className="pt-[100px]">
+      <main className="pt-20 sm:pt-24 pb-12 sm:pb-20">
         <ManagementHero />
         <ManagementTeam />
         <ManagementValues />

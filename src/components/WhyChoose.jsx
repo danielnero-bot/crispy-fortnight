@@ -109,17 +109,17 @@ export default function WhyChoose() {
     <section
       ref={sectionRef}
       id="academics"
-      className="bg-surface-container-lowest py-20"
+      className="bg-surface-container-lowest py-16 sm:py-20 md:py-24"
     >
-      <div className="mx-auto max-w-[1280px] px-4 md:px-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-16 flex flex-col items-start justify-between md:flex-row md:items-end">
+        <div className="mb-10 sm:mb-16 flex flex-col items-start justify-between md:flex-row md:items-end">
           <div className="max-w-2xl">
-            <h2 className="mb-4 font-display text-[32px] font-semibold leading-[1.3] text-primary">
+            <h2 className="mb-3 sm:mb-4 font-display text-2xl sm:text-3xl md:text-4xl font-semibold leading-[1.3] text-primary">
               Why Choose ACMGS
             </h2>
 
-            <p className="font-body text-base leading-[1.5] text-on-surface-variant">
+            <p className="font-body text-base leading-relaxed text-on-surface-variant">
               A holistic approach to education designed to cultivate the mind,
               body, and spirit of tomorrow&apos;s female leaders.
             </p>
@@ -137,13 +137,13 @@ export default function WhyChoose() {
                 ref={(element) => {
                   cardRefs.current[index] = element;
                 }}
-                className={`flex h-full flex-col border-t-[3px] border-on-tertiary-container bg-surface p-8 shadow-[0_4px_20px_rgba(0,35,71,0.03)] transition-transform duration-300 hover:-translate-y-1 ${
+                className={`flex h-full flex-col rounded-lg border-t-[3px] border-on-tertiary-container bg-surface p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,35,71,0.03)] transition-transform duration-300 hover:-translate-y-1 ${
                   feature.large ? "lg:col-span-2" : ""
                 }`}
               >
                 <div
                   className={`${
-                    feature.large ? "flex flex-col gap-6 md:flex-row" : ""
+                    feature.large ? "flex flex-col sm:flex-row gap-6" : ""
                   }`}
                 >
                   {/* Icon */}
@@ -161,11 +161,11 @@ export default function WhyChoose() {
 
                   {/* Content */}
                   <div>
-                    <h3 className="mb-3 font-display text-2xl font-semibold leading-[1.4] text-primary">
+                    <h3 className="mb-3 font-display text-xl sm:text-2xl font-semibold leading-[1.4] text-primary">
                       {feature.title}
                     </h3>
 
-                    <p className="font-body text-base leading-[1.5] text-on-surface-variant">
+                    <p className="font-body text-sm sm:text-base leading-relaxed text-on-surface-variant">
                       {feature.description}
                     </p>
                   </div>

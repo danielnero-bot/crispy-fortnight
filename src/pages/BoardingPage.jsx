@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 
 export default function BoardingPage() {
   return (
-    <div className="bg-stone-50 text-slate-900 font-sans antialiased">
+    <div className="min-h-screen bg-surface text-on-surface font-body antialiased overflow-x-hidden">
       <Navbar />
       <main>
         <BoardingHero />

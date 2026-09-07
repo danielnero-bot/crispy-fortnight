@@ -8,10 +8,10 @@ import Footer from "../components/Footer";
 
 export default function AboutPage() {
   return (
-    <div className="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
+    <div className="min-h-screen bg-surface text-on-surface antialiased overflow-x-hidden">
       <Navbar />
 
-      <main className="pt-[100px] pb-section-padding">
+      <main className="pt-20 sm:pt-24 pb-12 sm:pb-20">
         <AboutHero />
         <HeritageImage />
         <OurStory />

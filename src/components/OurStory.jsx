@@ -8,13 +8,13 @@ export default function OurStory({
   paragraphs = defaultParagraphs,
 }) {
   return (
-    <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-padding border-t border-surface-container-highest">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 border-t border-surface-container-highest">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12">
         <div className="md:col-span-4">
-          <h2 className="font-headline-md text-headline-md text-primary mb-4">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-primary mb-3">
             {title}
           </h2>
-          <div className="w-12 h-1 bg-tertiary-fixed-dim rounded mb-8" />
+          <div className="w-12 h-1 bg-tertiary-fixed-dim rounded mb-6 md:mb-8" />
         </div>
         <div className="md:col-span-8">
           {paragraphs.map((text, idx) => (
@@ -22,8 +22,8 @@ export default function OurStory({
               key={idx}
               className={
                 idx === 0
-                  ? "font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed"
-                  : "font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed"
+                  ? "font-body text-base sm:text-lg text-on-surface-variant mb-5 leading-relaxed font-medium"
+                  : "font-body text-sm sm:text-base text-on-surface-variant mb-5 leading-relaxed"
               }
             >
               {text}

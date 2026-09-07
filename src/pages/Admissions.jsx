@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 
 export default function AdmissionsPage() {
   return (
-    <div className="bg-background text-on-background font-body-md antialiased pt-20">
+    <div className="min-h-screen bg-surface text-on-surface antialiased overflow-x-hidden pt-20">
       <Navbar />
       <main>
         <Hero />

@@ -26,35 +26,35 @@ const HOUSES = [
 
 export default function HouseSystem() {
   return (
-    <section className="py-20 bg-slate-100">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-3xl font-semibold text-slate-950 mb-4">
+    <section className="py-16 sm:py-20 bg-slate-100/70">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-950 mb-3">
             Our House System
           </h2>
-          <p className="text-base text-slate-700 max-w-2xl mx-auto">
+          <p className="font-body text-sm sm:text-base text-slate-700 max-w-2xl mx-auto leading-relaxed">
             A structured house community supporting dormitory life, sports,
             cultural events, healthy competition, and lasting sisterhood.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {HOUSES.map((house, index) => {
             const Icon = house.icon;
             return (
               <div
                 key={index}
-                className="p-8 rounded-lg bg-white/85 backdrop-blur-md border-t-2 border-amber-300 shadow-sm text-center hover:-translate-y-1 transition-transform duration-300"
+                className="p-6 sm:p-8 rounded-xl bg-white/90 backdrop-blur-md border-t-2 border-amber-300 shadow-sm text-center hover:-translate-y-1 transition-transform duration-300"
               >
                 <div
-                  className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 ${house.iconBg}`}
+                  className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-5 sm:mb-6 ${house.iconBg}`}
                 >
-                  <Icon className="w-8 h-8" />
+                  <Icon className="w-7 h-7 sm:w-8 sm:h-8" />
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-slate-950 mb-4">
+                <h3 className="font-display text-lg sm:text-xl font-semibold text-slate-950 mb-3">
                   {house.title}
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
+                <p className="font-body text-slate-600 text-sm leading-relaxed">
                   {house.description}
                 </p>
               </div>

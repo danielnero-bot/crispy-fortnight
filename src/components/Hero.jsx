@@ -109,14 +109,14 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto w-full max-w-[1280px] px-4 py-20 md:px-16 md:py-20">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-28">
         <div className="max-w-3xl">
           {/* Established Badge */}
           <span
             ref={(element) => {
               heroItemsRef.current[0] = element;
             }}
-            className="mb-6 inline-block border border-surface/30 bg-surface-container-highest/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-on-primary backdrop-blur-sm"
+            className="mb-6 inline-block border border-surface/30 bg-surface-container-highest/20 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.1em] text-on-primary backdrop-blur-sm rounded-sm"
           >
             Fidelis in minimis
           </span>
@@ -126,7 +126,7 @@ export default function Hero() {
             ref={(element) => {
               heroItemsRef.current[1] = element;
             }}
-            className="mb-6 font-display text-[32px] font-bold leading-[1.2] tracking-tight text-on-primary md:text-[48px] md:leading-[1.1]"
+            className="mb-6 font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight text-on-primary"
           >
             Educational, moral and spiritual excellence in Christ.
           </h1>
@@ -136,7 +136,7 @@ export default function Hero() {
             ref={(element) => {
               heroItemsRef.current[2] = element;
             }}
-            className="mb-10 max-w-2xl font-body text-lg leading-[1.6] text-surface-container-highest"
+            className="mb-10 max-w-2xl font-body text-base sm:text-lg leading-relaxed text-surface-container-highest"
           >
             Archdeacon Crowther Memorial Girls&apos; School is an Anglican
             all-girls day and boarding secondary school in Elelenwo, Port
@@ -148,24 +148,24 @@ export default function Hero() {
             ref={(element) => {
               heroItemsRef.current[3] = element;
             }}
-            className="flex flex-col gap-4 sm:flex-row"
+            className="flex flex-col gap-3.5 sm:flex-row sm:items-center"
           >
-            <Link
+            <a
               ref={(element) => {
                 buttonRefs.current[0] = element;
               }}
-              to="#about"
-              className="inline-flex items-center justify-center border border-transparent bg-surface px-8 py-4 text-xs font-semibold uppercase tracking-[0.1em] text-primary transition-colors duration-300 hover:bg-surface-container"
+              href="#about"
+              className="inline-flex min-h-[44px] h-12 w-full sm:w-auto items-center justify-center border border-transparent bg-surface px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.1em] text-primary transition-colors duration-300 hover:bg-surface-container"
             >
               Explore ACMGS
-            </Link>
+            </a>
 
             <Link
               ref={(element) => {
                 buttonRefs.current[1] = element;
               }}
               to="/admissions"
-              className="inline-flex items-center justify-center border border-on-primary bg-transparent px-8 py-4 text-xs font-semibold uppercase tracking-[0.1em] text-on-primary transition-colors duration-300 hover:bg-on-primary hover:text-primary"
+              className="inline-flex min-h-[44px] h-12 w-full sm:w-auto items-center justify-center border border-on-primary bg-transparent px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.1em] text-on-primary transition-colors duration-300 hover:bg-on-primary hover:text-primary"
             >
               Explore Admissions
             </Link>

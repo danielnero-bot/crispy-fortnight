@@ -37,17 +37,17 @@ export default function LearningEnvironment({
   facilities = defaultFacilities,
 }) {
   return (
-    <section className="py-section-padding px-margin-mobile md:px-margin-desktop bg-surface max-w-container-max mx-auto">
-      <div className="text-center mb-16">
-        <span className="font-label-caps text-label-caps text-secondary mb-4 block">
+    <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-surface max-w-7xl mx-auto">
+      <div className="text-center mb-10 sm:mb-16">
+        <span className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary mb-3 block">
           {eyebrow}
         </span>
-        <h2 className="font-headline-md text-headline-md text-primary">
+        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-primary">
           {title}
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[220px] sm:auto-rows-[250px]">
         {facilities.map((facility) => (
           <FacilityTile key={facility.title} facility={facility} />
         ))}
@@ -63,24 +63,24 @@ function FacilityTile({ facility }) {
   if (type === "icon") {
     return (
       <div
-        className={`relative rounded overflow-hidden group bg-primary-container ${
+        className={`relative rounded-lg overflow-hidden group bg-primary-container ${
           span || ""
         }`}
       >
         <div className="absolute inset-0 flex items-center justify-center">
           <FaComputer
-            className="text-6xl text-on-primary-container opacity-40"
+            className="text-5xl sm:text-6xl text-on-primary-container opacity-40"
             aria-hidden="true"
           />
         </div>
-        <div className="absolute bottom-0 left-0 p-6 z-10">
-          <h3 className="font-headline-sm text-headline-sm text-on-primary mb-2">
+        <div className="absolute bottom-0 left-0 p-5 sm:p-6 z-10">
+          <h3 className="font-display text-lg sm:text-xl font-semibold text-on-primary mb-1.5">
             {title}
           </h3>
           {linkLabel && (
             <a
               href={linkHref}
-              className="font-label-caps text-label-caps text-tertiary-fixed hover:text-white transition-colors flex items-center gap-1"
+              className="inline-flex min-h-[44px] items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.1em] text-tertiary-fixed hover:text-white transition-colors py-2"
             >
               {linkLabel}
               <FaArrowRight className="text-sm" aria-hidden="true" />
@@ -92,19 +92,19 @@ function FacilityTile({ facility }) {
   }
 
   return (
-    <div className={`relative rounded overflow-hidden group ${span || ""}`}>
+    <div className={`relative rounded-lg overflow-hidden group ${span || ""}`}>
       <img
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         src={image}
         alt={title}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
-      <div className="absolute bottom-0 left-0 p-6">
-        <h3 className="font-headline-sm text-headline-sm text-on-primary mb-2">
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 p-5 sm:p-6">
+        <h3 className="font-display text-lg sm:text-xl font-semibold text-on-primary mb-1.5">
           {title}
         </h3>
         {description && (
-          <p className="font-body-md text-body-md text-on-primary/80">
+          <p className="font-body text-xs sm:text-sm text-on-primary/85 leading-relaxed line-clamp-2">
             {description}
           </p>
         )}

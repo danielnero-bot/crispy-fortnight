@@ -58,17 +58,17 @@ export default function Navbar() {
       ref={navRef}
       className="fixed top-0 z-50 w-full bg-surface/90 backdrop-blur-md shadow-sm shadow-[0_4px_20px_rgba(0,35,71,0.05)]"
     >
-      <div className="mx-auto flex h-20 max-w-[1280px] items-center justify-between px-4 md:px-16">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link
           to="/"
-          className="font-display text-2xl font-bold tracking-tight text-primary"
+          className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-primary hover:opacity-90 transition-opacity"
         >
           ACMGS
         </Link>
 
         {/* Desktop Navigation */}
-        <ul className="hidden items-center space-x-8 md:flex">
+        <ul className="hidden items-center space-x-6 lg:space-x-8 md:flex">
           {navLinks.map((link) => (
             <li key={link.name}>
               <NavLink
@@ -86,32 +86,38 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Desktop Apply Button */}
-        <div className="hidden md:block">
+        {/* Desktop Actions */}
+        <div className="hidden items-center space-x-4 md:flex">
+          <Link
+            to="/login"
+            className="text-xs font-semibold uppercase tracking-[0.1em] text-primary transition-colors duration-300 hover:text-secondary px-3 py-2"
+          >
+            Portal
+          </Link>
           <Link
             to="/admissions"
-            className="gold-glow inline-flex items-center justify-center border border-transparent bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-on-primary transition-colors duration-300 hover:border-on-tertiary-container hover:bg-secondary"
+            className="gold-glow inline-flex h-11 items-center justify-center border border-transparent bg-primary px-6 text-xs font-semibold uppercase tracking-[0.1em] text-on-primary transition-colors duration-300 hover:border-on-tertiary-container hover:bg-secondary"
           >
             Apply Now
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Toggle Button */}
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="text-primary md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-primary hover:bg-surface-container active:bg-surface-container-high transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary md:hidden"
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation Drawer */}
       {isOpen && (
-        <div className="border-t border-outline-variant/30 bg-surface px-4 py-6 shadow-lg md:hidden">
-          <ul className="flex flex-col gap-5">
+        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-outline-variant/30 bg-surface/98 backdrop-blur-lg px-4 py-5 shadow-xl md:hidden">
+          <ul className="flex flex-col space-y-1">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <NavLink
@@ -120,8 +126,8 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
                     isActive
-                      ? "block w-fit border-b-2 border-secondary pb-1 text-sm font-semibold uppercase tracking-[0.1em] text-secondary transition-colors"
-                      : "block w-fit text-sm font-semibold uppercase tracking-[0.1em] text-primary transition-colors hover:text-secondary"
+                      ? "flex min-h-[44px] items-center rounded-lg bg-surface-container px-4 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-secondary transition-colors"
+                      : "flex min-h-[44px] items-center rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-primary transition-colors hover:bg-surface-container hover:text-secondary"
                   }
                 >
                   {link.name}
@@ -129,11 +135,18 @@ export default function Navbar() {
               </li>
             ))}
 
-            <li className="pt-2">
+            <li className="pt-3 border-t border-outline-variant/20 mt-2 space-y-2">
+              <Link
+                to="/login"
+                onClick={() => setIsOpen(false)}
+                className="flex min-h-[44px] w-full items-center justify-center rounded-lg border border-outline-variant px-4 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-primary transition-colors hover:bg-surface-container"
+              >
+                Portal Login
+              </Link>
               <Link
                 to="/admissions"
                 onClick={() => setIsOpen(false)}
-                className="gold-glow inline-flex w-full items-center justify-center bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-on-primary transition-colors hover:bg-secondary"
+                className="gold-glow flex min-h-[44px] w-full items-center justify-center bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-on-primary transition-colors hover:bg-secondary"
               >
                 Apply Now
               </Link>

@@ -51,15 +51,16 @@ export default function PrincipalMessage() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-surface py-20">
-      <div className="mx-auto max-w-[1280px] px-4 md:px-16">
-        <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12">
+    <section ref={sectionRef} className="bg-surface py-16 sm:py-20 md:py-24 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
           {/* Image */}
-          <div ref={imageRef} className="relative isolate lg:col-span-5">
-            <div className="relative z-10 aspect-[4/5] w-full overflow-hidden border border-on-tertiary-container/20 bg-surface-container-high shadow-lg">
+          <div ref={imageRef} className="relative isolate lg:col-span-5 max-w-md mx-auto lg:max-w-none w-full">
+            <div className="relative z-10 aspect-[4/5] w-full overflow-hidden border border-on-tertiary-container/20 bg-surface-container-high shadow-lg rounded-lg">
               <img
                 ref={imageRef}
                 src="https://scontent.fabb1-3.fna.fbcdn.net/v/t39.30808-6/522624684_1173371928141146_8708216747425989669_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1080&ctp=s720x1080&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=jNLGkO6YLwMQ7kNvwHWCBRW&_nc_oc=AdqhQ7i6vD48VzGd9GdnVjonNNt6HCTTfDoUAoS6IfKCriQ0RAUA8N8CvoffrbcZGGDdERWRI9tgpoGlzTsaNpqz&_nc_zt=23&_nc_ht=scontent.fabb1-3.fna&_nc_gid=hA_ySHFZTXIIWLlvmrRSDA&_nc_ss=78289&oh=00_AQLW4A8TLhle8rW0fYsKVPSr7pF4OcE9tcO1xrmuLtVPUQ&oe=6AA06534"
+                alt="Principal Mrs. Chinyere Uchenna Ordu"
                 className="h-full w-full object-cover"
               />
               <div
@@ -69,27 +70,27 @@ export default function PrincipalMessage() {
               />
             </div>
 
-            {/* Decorative element */}
-            <div className="absolute -bottom-6 -right-6 z-0 h-24 w-24 bg-secondary-fixed/50" />
+            {/* Decorative element - safe on mobile */}
+            <div className="hidden sm:block absolute -bottom-4 -right-4 z-0 h-20 w-20 rounded bg-secondary-fixed/50" />
           </div>
 
           {/* Text */}
-          <div className="mt-12 lg:col-span-7 lg:mt-0 lg:pl-12">
-            <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.1em] text-on-tertiary-container">
+          <div className="mt-4 sm:mt-8 lg:col-span-7 lg:mt-0 lg:pl-8 xl:pl-12">
+            <span className="mb-3 sm:mb-4 block text-xs font-semibold uppercase tracking-[0.1em] text-on-tertiary-container">
               From the Principal
             </span>
 
-            <h2 className="mb-8 font-display text-[32px] font-semibold leading-[1.3] text-primary">
+            <h2 className="mb-6 sm:mb-8 font-display text-2xl sm:text-3xl md:text-4xl font-semibold leading-[1.3] text-primary">
               Education grounded in faith and purpose
             </h2>
 
             <div
               ref={quoteRef}
-              className="mb-8 border-l-2 border-secondary pl-6"
+              className="mb-6 sm:mb-8 border-l-2 border-secondary pl-4 sm:pl-6"
             >
               <p
                 ref={quoteRef}
-                className="font-display text-xl italic leading-[1.5] text-on-surface-variant"
+                className="font-display text-lg sm:text-xl italic leading-relaxed text-on-surface-variant"
               >
                 {[
                   "To provide high-quality education in a safe, caring, and healthy",
@@ -111,7 +112,7 @@ export default function PrincipalMessage() {
             </div>
 
             <div>
-              <p className="font-body text-lg font-bold text-primary">
+              <p className="font-body text-base sm:text-lg font-bold text-primary">
                 Mrs. Chinyere Uchenna Ordu, JP
               </p>
 

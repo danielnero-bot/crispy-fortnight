@@ -71,26 +71,26 @@ export default function Heritage() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="about" className="bg-surface py-20">
-      <div className="mx-auto max-w-[1280px] px-4 text-center md:px-16">
-        <h2 className="mx-auto mb-12 max-w-4xl font-display text-[32px] font-semibold leading-[1.3] text-primary">
+    <section ref={sectionRef} id="about" className="bg-surface py-16 sm:py-20 md:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="mx-auto mb-8 sm:mb-12 max-w-4xl font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.25] text-primary">
           A Christian education for girls since 1943
         </h2>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
           {stats.map((stat, index) => (
             <div
               key={stat.label}
               ref={(element) => {
                 cardRefs.current[index] = element;
               }}
-              className="border-t-2 border-on-tertiary-container/30 bg-surface-container-low p-8"
+              className="border-t-2 border-on-tertiary-container/30 bg-surface-container-low p-6 sm:p-8 rounded-lg"
             >
               <span
                 ref={(element) => {
                   numberRefs.current[index] = element;
                 }}
-                className="mb-2 block font-display text-[48px] font-bold leading-[1.1] tracking-tight text-secondary"
+                className="mb-2 block font-display text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight text-secondary"
               >
                 {stat.value}
               </span>

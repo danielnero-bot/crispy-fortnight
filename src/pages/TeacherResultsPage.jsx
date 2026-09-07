@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import {
-  fetchAllResults,
-  listStudents,
-  saveResult,
-} from "../lib/resultStore";
+import { fetchAllResults, listStudents, saveResult } from "../lib/resultStore";
 
 const SUBJECTS = [
   "Mathematics",
@@ -12,35 +7,38 @@ const SUBJECTS = [
   "Biology",
   "Chemistry",
   "Physics",
-  "Government",
   "Economics",
-  "Literature",
+  "Government",
+  "Literature in English",
   "Geography",
   "Computer Science",
+  "Civic Education",
+  "Christian Religious Studies",
 ];
 
-const initialForm = {
-  studentId: "",
-  studentName: "",
-  subject: "",
-  term: "First Term",
-  session: "2024/2025",
-  caScore: "",
-  examScore: "",
-};
-
 export default function TeacherResultsPage() {
-  const [formData, setFormData] = useState(initialForm);
   const [students, setStudents] = useState([]);
   const [results, setResults] = useState([]);
+
+  const [formData, setFormData] = useState({
+    studentId: "",
+    studentName: "",
+    subject: "",
+    term: "First Term",
+    session: "2024/2025",
+    caScore: "",
+    examScore: "",
+  });
+
   const [loadingStudents, setLoadingStudents] = useState(true);
   const [loadingResults, setLoadingResults] = useState(true);
   const [saving, setSaving] = useState(false);
+
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
   useEffect(() => {
-    const loadData = async () => {
+    async function loadData() {
       try {
         setError("");
 
@@ -52,23 +50,23 @@ export default function TeacherResultsPage() {
         setStudents(studentData);
         setResults(resultData);
       } catch (err) {
-        console.error("Failed to load teacher results data:", err);
-        setError(err.message || "Failed to load results.");
+        console.error(err);
+        setError("Failed to load students or results.");
       } finally {
         setLoadingStudents(false);
         setLoadingResults(false);
       }
-    };
+    }
 
     loadData();
   }, []);
 
-  const handleChange = (event) => {
+  function handleChange(event) {
     const { name, value } = event.target;
 
     if (name === "studentId") {
       const selectedStudent = students.find(
-        (student) => student.id === value,
+        (student) => student.id === value
       );
 
       setFormData((current) => ({
@@ -84,82 +82,105 @@ export default function TeacherResultsPage() {
       ...current,
       [name]: value,
     }));
-  };
+  }
 
-  const handleSubmit = async (event) => {
+  async function handleSubmit(event) {
     event.preventDefault();
 
     setError("");
     setSuccess("");
-    setSaving(true);
 
     try {
-      const nextResult = await saveResult(formData);
+      setSaving(true);
 
-      setResults((current) => [nextResult, ...current]);
+      const savedResult = await saveResult(formData);
 
-      setSuccess("Result saved successfully.");
-      setFormData(initialForm);
+      setResults((current) => [savedResult, ...current]);
+
+      setSuccess(
+        `Result uploaded successfully for ${formData.studentName}.`
+      );
+
+      setFormData((current) => ({
+        ...current,
+        subject: "",
+        caScore: "",
+        examScore: "",
+      }));
     } catch (err) {
-      console.error("Failed to save result:", err);
-      setError(err.message || "Failed to save result.");
+      console.error(err);
+      setError(err.message || "Failed to upload result.");
     } finally {
       setSaving(false);
     }
-  };
+  }
+
+  const caScore = Number(formData.caScore) || 0;
+  const examScore = Number(formData.examScore) || 0;
+  const total = caScore + examScore;
 
   return (
-    <div className="min-h-screen bg-surface px-4 sm:px-6 lg:px-8 py-8 sm:py-12 text-on-surface">
+    <div className="min-h-screen bg-surface px-4 py-8 text-on-surface sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-4">
-          <Link
-            to="/dashboard"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-secondary hover:text-primary transition-colors py-1"
-          >
-            ← Back to Dashboard
-          </Link>
-        </div>
-
         <div className="mb-8">
-          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-secondary">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
             Teacher portal
           </p>
 
-          <h1 className="mt-1.5 font-display text-2xl sm:text-3xl font-bold text-primary">
-            Update student results
+          <h1 className="mt-2 font-display text-2xl font-bold text-primary sm:text-3xl">
+            Manage Results
           </h1>
+
+          <p className="mt-2 text-sm text-on-surface-variant">
+            Upload and manage student academic results.
+          </p>
         </div>
 
         {error && (
-          <div className="mb-6 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
-            {error}
+          <div className="mb-6 rounded-xl border border-error-container bg-error-container/30 px-4 py-3">
+            <p className="text-sm font-medium text-on-error-container">
+              {error}
+            </p>
           </div>
         )}
 
         {success && (
-          <div className="mb-6 rounded-xl border border-primary/20 bg-primary-container p-4 text-sm text-on-primary-container">
-            {success}
+          <div className="mb-6 rounded-xl border border-primary-container bg-primary-container/30 px-4 py-3">
+            <p className="text-sm font-medium text-on-primary-container">
+              {success}
+            </p>
           </div>
         )}
 
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_1.4fr] items-start">
-          <form
-            onSubmit={handleSubmit}
-            className="rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-5 sm:p-6 shadow-sm"
-          >
-            <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-[400px_1fr]">
+          {/* Upload form */}
+          <section className="rounded-2xl border border-outline-variant/70 bg-surface-container-lowest p-5 shadow-sm sm:p-6">
+            <h2 className="text-lg font-bold text-primary">
+              Upload Result
+            </h2>
+
+            <p className="mt-1 text-sm text-on-surface-variant">
+              Select a student and enter their scores.
+            </p>
+
+            <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+              {/* Student */}
               <div>
-                <label className="mb-2 block text-sm font-medium text-primary">
+                <label
+                  htmlFor="studentId"
+                  className="mb-2 block text-sm font-semibold text-primary"
+                >
                   Student
                 </label>
 
                 <select
+                  id="studentId"
                   name="studentId"
                   value={formData.studentId}
                   onChange={handleChange}
                   disabled={loadingStudents || saving}
+                  className="w-full rounded-xl border border-outline-variant bg-surface px-3 py-3 text-sm outline-none focus:border-primary"
                   required
-                  className="w-full min-h-[44px] h-11 rounded-xl border border-outline-variant bg-surface px-3.5 py-2.5 text-base sm:text-sm text-on-surface outline-none focus:border-secondary transition-all"
                 >
                   <option value="">
                     {loadingStudents
@@ -169,37 +190,52 @@ export default function TeacherResultsPage() {
 
                   {students.map((student) => (
                     <option key={student.id} value={student.id}>
-                      {student.admission_no} — {student.full_name}
+                      {student.full_name} — {student.admission_no}
                     </option>
                   ))}
                 </select>
               </div>
 
-              <div>
-                <label className="mb-2 block text-sm font-medium text-primary">
-                  Student Name
-                </label>
+              {/* Result Code */}
+              {formData.studentId && (
+                <div className="rounded-xl bg-surface-container p-4">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-secondary">
+                    Student Result Code
+                  </p>
 
-                <input
-                  value={formData.studentName}
-                  readOnly
-                  placeholder="Student name"
-                  className="w-full min-h-[44px] h-11 rounded-xl border border-outline-variant bg-surface-container-low px-3.5 py-2.5 text-base sm:text-sm text-on-surface outline-none"
-                />
-              </div>
+                  <p className="mt-1 font-mono text-lg font-bold text-primary">
+                    {
+                      students.find(
+                        (student) =>
+                          student.id === formData.studentId
+                      )?.result_code
+                    }
+                  </p>
 
+                  <p className="mt-1 text-xs text-on-surface-variant">
+                    Give this code to the student so they can check
+                    their results.
+                  </p>
+                </div>
+              )}
+
+              {/* Subject */}
               <div>
-                <label className="mb-2 block text-sm font-medium text-primary">
+                <label
+                  htmlFor="subject"
+                  className="mb-2 block text-sm font-semibold text-primary"
+                >
                   Subject
                 </label>
 
                 <select
+                  id="subject"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
                   disabled={saving}
+                  className="w-full rounded-xl border border-outline-variant bg-surface px-3 py-3 text-sm outline-none focus:border-primary"
                   required
-                  className="w-full min-h-[44px] h-11 rounded-xl border border-outline-variant bg-surface px-3.5 py-2.5 text-base sm:text-sm text-on-surface outline-none focus:border-secondary transition-all"
                 >
                   <option value="">Select subject</option>
 
@@ -211,166 +247,222 @@ export default function TeacherResultsPage() {
                 </select>
               </div>
 
+              {/* Term */}
               <div>
-                <label className="mb-2 block text-sm font-medium text-primary">
+                <label
+                  htmlFor="term"
+                  className="mb-2 block text-sm font-semibold text-primary"
+                >
                   Term
                 </label>
 
                 <select
+                  id="term"
                   name="term"
                   value={formData.term}
                   onChange={handleChange}
                   disabled={saving}
-                  className="w-full min-h-[44px] h-11 rounded-xl border border-outline-variant bg-surface px-3.5 py-2.5 text-base sm:text-sm text-on-surface outline-none focus:border-secondary transition-all"
+                  className="w-full rounded-xl border border-outline-variant bg-surface px-3 py-3 text-sm outline-none focus:border-primary"
+                  required
                 >
-                  <option>First Term</option>
-                  <option>Second Term</option>
-                  <option>Third Term</option>
+                  <option value="First Term">First Term</option>
+                  <option value="Second Term">Second Term</option>
+                  <option value="Third Term">Third Term</option>
                 </select>
               </div>
 
+              {/* Session */}
               <div>
-                <label className="mb-2 block text-sm font-medium text-primary">
-                  Session
+                <label
+                  htmlFor="session"
+                  className="mb-2 block text-sm font-semibold text-primary"
+                >
+                  Academic Session
                 </label>
 
-                <input
+                <select
+                  id="session"
                   name="session"
                   value={formData.session}
                   onChange={handleChange}
                   disabled={saving}
+                  className="w-full rounded-xl border border-outline-variant bg-surface px-3 py-3 text-sm outline-none focus:border-primary"
                   required
-                  placeholder="2024/2025"
-                  className="w-full min-h-[44px] h-11 rounded-xl border border-outline-variant bg-surface px-3.5 py-2.5 text-base sm:text-sm text-on-surface outline-none focus:border-secondary transition-all"
-                />
+                >
+                  <option value="2024/2025">2024/2025</option>
+                  <option value="2025/2026">2025/2026</option>
+                  <option value="2026/2027">2026/2027</option>
+                </select>
               </div>
 
-              <div>
-                <label className="mb-2 block text-sm font-medium text-primary">
-                  CA Score
-                </label>
+              {/* Scores */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label
+                    htmlFor="caScore"
+                    className="mb-2 block text-sm font-semibold text-primary"
+                  >
+                    CA Score
+                  </label>
 
-                <input
-                  type="number"
-                  name="caScore"
-                  min="0"
-                  max="30"
-                  value={formData.caScore}
-                  onChange={handleChange}
-                  disabled={saving}
-                  required
-                  className="w-full min-h-[44px] h-11 rounded-xl border border-outline-variant bg-surface px-3.5 py-2.5 text-base sm:text-sm text-on-surface outline-none focus:border-secondary transition-all"
-                />
+                  <input
+                    id="caScore"
+                    name="caScore"
+                    type="number"
+                    min="0"
+                    max="30"
+                    value={formData.caScore}
+                    onChange={handleChange}
+                    disabled={saving}
+                    placeholder="0–30"
+                    className="w-full rounded-xl border border-outline-variant bg-surface px-3 py-3 text-sm outline-none focus:border-primary"
+                    required
+                  />
+                </div>
 
-                <p className="mt-1 text-xs text-on-surface-variant">
-                  Maximum: 30
-                </p>
+                <div>
+                  <label
+                    htmlFor="examScore"
+                    className="mb-2 block text-sm font-semibold text-primary"
+                  >
+                    Exam Score
+                  </label>
+
+                  <input
+                    id="examScore"
+                    name="examScore"
+                    type="number"
+                    min="0"
+                    max="70"
+                    value={formData.examScore}
+                    onChange={handleChange}
+                    disabled={saving}
+                    placeholder="0–70"
+                    className="w-full rounded-xl border border-outline-variant bg-surface px-3 py-3 text-sm outline-none focus:border-primary"
+                    required
+                  />
+                </div>
               </div>
 
-              <div>
-                <label className="mb-2 block text-sm font-medium text-primary">
-                  Exam Score
-                </label>
+              {/* Total */}
+              <div className="rounded-xl bg-primary/5 p-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-semibold text-secondary">
+                    Total Score
+                  </span>
 
-                <input
-                  type="number"
-                  name="examScore"
-                  min="0"
-                  max="70"
-                  value={formData.examScore}
-                  onChange={handleChange}
-                  disabled={saving}
-                  required
-                  className="w-full min-h-[44px] h-11 rounded-xl border border-outline-variant bg-surface px-3.5 py-2.5 text-base sm:text-sm text-on-surface outline-none focus:border-secondary transition-all"
-                />
-
-                <p className="mt-1 text-xs text-on-surface-variant">
-                  Maximum: 70
-                </p>
+                  <span className="text-2xl font-bold text-primary">
+                    {total}
+                    <span className="ml-1 text-sm font-normal text-secondary">
+                      / 100
+                    </span>
+                  </span>
+                </div>
               </div>
+
+              <button
+                type="submit"
+                disabled={saving || loadingStudents}
+                className="w-full rounded-xl bg-primary px-4 py-3 text-sm font-bold text-on-primary transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                {saving ? "Uploading..." : "Upload Result"}
+              </button>
+            </form>
+          </section>
+
+          {/* Results */}
+          <section className="min-w-0">
+            <div className="mb-4">
+              <h2 className="text-lg font-bold text-primary">
+                Recent Results
+              </h2>
+
+              <p className="mt-1 text-sm text-on-surface-variant">
+                Results that have been uploaded.
+              </p>
             </div>
 
-            <div className="mt-6 rounded-xl bg-surface-container-low p-4">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-on-surface-variant">
-                  Total Score
-                </span>
+            <div className="overflow-hidden rounded-2xl border border-outline-variant/70 bg-surface-container-lowest shadow-sm">
+              {loadingResults ? (
+                <div className="p-8 text-center">
+                  <p className="text-sm text-on-surface-variant">
+                    Loading results...
+                  </p>
+                </div>
+              ) : results.length === 0 ? (
+                <div className="p-8 text-center">
+                  <p className="font-semibold text-primary">
+                    No results uploaded yet.
+                  </p>
 
-                <span className="text-xl font-semibold text-primary">
-                  {(Number(formData.caScore) || 0) +
-                    (Number(formData.examScore) || 0)}
-                  /100
-                </span>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              disabled={saving || loadingStudents}
-              className="mt-6 w-full sm:w-auto min-h-[44px] h-11 px-6 inline-flex items-center justify-center rounded-xl bg-primary text-xs font-semibold uppercase tracking-[0.12em] text-on-primary hover:bg-secondary transition-colors disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {saving ? "Saving..." : "Save result"}
-            </button>
-          </form>
-
-          <div className="rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-5 sm:p-6 shadow-sm">
-            <h2 className="mb-4 font-display text-lg sm:text-xl font-bold text-primary">
-              Recent entries
-            </h2>
-
-            {loadingResults ? (
-              <p className="text-sm text-on-surface-variant">
-                Loading results...
-              </p>
-            ) : results.length === 0 ? (
-              <p className="text-sm text-on-surface-variant">
-                No results have been entered yet.
-              </p>
-            ) : (
-              <div className="w-full overflow-x-auto max-h-[500px]">
-                <table className="w-full min-w-[480px] border-collapse text-left text-sm whitespace-nowrap">
-                  <thead>
-                    <tr className="border-b border-outline-variant text-xs font-semibold uppercase tracking-wider text-primary">
-                      <th className="pb-3 pr-4">Student</th>
-                      <th className="pb-3 pr-4">Subject</th>
-                      <th className="pb-3 pr-4">Total</th>
-                      <th className="pb-3">Grade</th>
-                    </tr>
-                  </thead>
-
-                  <tbody className="divide-y divide-outline-variant/40">
-                    {results.map((result) => (
-                      <tr
-                        key={result.id}
-                        className="hover:bg-surface/50 transition-colors"
-                      >
-                        <td className="py-3 pr-4 font-medium text-primary">
-                          {result.studentName}
-                        </td>
-
-                        <td className="py-3 pr-4 text-on-surface-variant">
-                          {result.subject}
-                        </td>
-
-                        <td className="py-3 pr-4 font-semibold text-primary">
-                          {result.total}
-                        </td>
-
-                        <td className="py-3">
-                          <span className="inline-flex items-center justify-center px-2 py-0.5 rounded text-xs font-bold bg-primary/10 text-primary">
-                            {result.grade}
-                          </span>
-                        </td>
+                  <p className="mt-1 text-sm text-on-surface-variant">
+                    Uploaded results will appear here.
+                  </p>
+                </div>
+              ) : (
+                <div className="w-full overflow-x-auto">
+                  <table className="w-full min-w-[750px] border-collapse text-left text-sm">
+                    <thead className="border-b border-outline-variant/60 bg-surface-container/70">
+                      <tr className="text-xs font-semibold uppercase tracking-wider text-primary">
+                        <th className="px-4 py-3">Student</th>
+                        <th className="px-4 py-3">Subject</th>
+                        <th className="px-4 py-3">Term</th>
+                        <th className="px-4 py-3 text-center">CA</th>
+                        <th className="px-4 py-3 text-center">Exam</th>
+                        <th className="px-4 py-3 text-center">Total</th>
+                        <th className="px-4 py-3 text-center">Grade</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </div>
+                    </thead>
+
+                    <tbody className="divide-y divide-outline-variant/40">
+                      {results.map((result) => (
+                        <tr
+                          key={result.id}
+                          className="hover:bg-surface/50"
+                        >
+                          <td className="px-4 py-3">
+                            <div>
+                              <p className="font-semibold text-primary">
+                                {result.studentName}
+                              </p>
+                            </div>
+                          </td>
+
+                          <td className="px-4 py-3">
+                            {result.subject}
+                          </td>
+
+                          <td className="px-4 py-3 text-on-surface-variant">
+                            {result.term}
+                          </td>
+
+                          <td className="px-4 py-3 text-center">
+                            {result.caScore}
+                          </td>
+
+                          <td className="px-4 py-3 text-center">
+                            {result.examScore}
+                          </td>
+
+                          <td className="px-4 py-3 text-center font-bold text-primary">
+                            {result.total}
+                          </td>
+
+                          <td className="px-4 py-3 text-center">
+                            <span className="font-bold text-primary">
+                              {result.grade}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          </section>
         </div>
       </div>
     </div>
   );
 }
-

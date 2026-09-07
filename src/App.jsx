@@ -12,6 +12,7 @@ import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import TeacherResultsPage from "./pages/TeacherResultsPage";
 import StudentResultsPage from "./pages/StudentResultsPage";
+import CheckResultPage from "./pages/CheckResultPage";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
           <Route path="/student-life" element={<StudentLife />} />
           <Route path="/management" element={<ManagementPage />} />
           <Route path="/login" element={<LoginPage />} />
-
+          <Route path="/check-result" element={<CheckResultPage />} />
           <Route
             path="/dashboard"
             element={

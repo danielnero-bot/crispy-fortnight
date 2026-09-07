@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/useAuth";
 
@@ -10,16 +10,23 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  if (session) {
+  useEffect(() => {
+    if (!session) {
+      return;
+    }
+
     if (session.role === "teacher") {
       navigate("/teacher/results", { replace: true });
-    } else if (session.role === "student") {
-      navigate("/student/results", { replace: true });
-    } else {
-      navigate("/dashboard", { replace: true });
+      return;
     }
-    return null;
-  }
+
+    if (session.role === "student") {
+      navigate("/student/results", { replace: true });
+      return;
+    }
+
+    navigate("/dashboard", { replace: true });
+  }, [navigate, session]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -70,7 +77,7 @@ export default function LoginPage() {
               type="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              className="w-full min-h-[44px] h-11 rounded-xl border border-outline-variant bg-white px-4 py-2.5 text-base sm:text-sm text-on-surface outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all"
+              className="w-full min-h-11 h-11 rounded-xl border border-outline-variant bg-white px-4 py-2.5 text-base sm:text-sm text-on-surface outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all"
               required
             />
           </div>
@@ -83,7 +90,7 @@ export default function LoginPage() {
               type="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              className="w-full min-h-[44px] h-11 rounded-xl border border-outline-variant bg-white px-4 py-2.5 text-base sm:text-sm text-on-surface outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all"
+              className="w-full min-h-11 h-11 rounded-xl border border-outline-variant bg-white px-4 py-2.5 text-base sm:text-sm text-on-surface outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all"
               required
             />
           </div>
@@ -97,7 +104,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full min-h-[44px] h-11 flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-on-primary transition-colors hover:bg-secondary disabled:opacity-50"
+            className="w-full min-h-11 h-11 flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-on-primary transition-colors hover:bg-secondary disabled:opacity-50"
           >
             {loading ? "Signing in..." : "Login"}
           </button>

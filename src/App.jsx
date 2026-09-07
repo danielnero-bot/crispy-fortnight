@@ -12,7 +12,7 @@ import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import TeacherResultsPage from "./pages/TeacherResultsPage";
 import StudentResultsPage from "./pages/StudentResultsPage";
-import CheckResultPage from "./pages/CheckResultPage";
+import CheckResultPage from "./pages/CheckResultPagee";
 
 function App() {
   return (

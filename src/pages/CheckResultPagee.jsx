@@ -8,7 +8,10 @@ export default function CheckResultPage() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
+  const [selectedTerm, setSelectedTerm] = useState("First Term");
+  const filteredResults = results.filter(
+  (result) => result.term === selectedTerm
+);
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -143,11 +146,12 @@ export default function CheckResultPage() {
               <button
                 type="button"
                 onClick={() => {
-                  setStudent(null);
-                  setResults([]);
-                  setResultCode("");
-                  setError("");
-                }}
+  setStudent(null);
+  setResults([]);
+  setResultCode("");
+  setError("");
+  setSelectedTerm("First Term");
+}}
                 className="self-start rounded-xl border border-outline-variant px-4 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-surface-container"
               >
                 Check Another
@@ -164,16 +168,35 @@ export default function CheckResultPage() {
               </p>
             </div>
 
-            {results.length === 0 ? (
+                <div className="mb-6 rounded-2xl border border-outline-variant/70 bg-surface-container-lowest p-5 shadow-sm">
+  <label
+    htmlFor="term"
+    className="mb-2 block text-sm font-semibold text-primary"
+  >
+    Select Term
+  </label>
+
+  <select
+    id="term"
+    value={selectedTerm}
+    onChange={(event) => setSelectedTerm(event.target.value)}
+    className="w-full max-w-xs rounded-xl border border-outline-variant bg-surface px-4 py-3 text-sm outline-none focus:border-primary"
+  >
+    <option value="First Term">First Term</option>
+    <option value="Second Term">Second Term</option>
+    <option value="Third Term">Third Term</option>
+  </select>
+</div>
+
+            {filteredResults.length === 0 ? (
               <div className="rounded-2xl border border-outline-variant/70 bg-surface-container-lowest p-8 text-center shadow-sm">
                 <p className="font-semibold text-primary">
-                  No results available yet.
-                </p>
+  No results available for {selectedTerm}.
+</p>
 
-                <p className="mt-2 text-sm text-on-surface-variant">
-                  Your school has not uploaded any results for this
-                  student yet.
-                </p>
+<p className="mt-2 text-sm text-on-surface-variant">
+  Your school has not uploaded any results for this term yet.
+</p>
               </div>
             ) : (
               <div className="overflow-hidden rounded-2xl border border-outline-variant/70 bg-surface-container-lowest shadow-sm">
@@ -193,7 +216,7 @@ export default function CheckResultPage() {
                     </thead>
 
                     <tbody className="divide-y divide-outline-variant/40">
-                      {results.map((result, index) => (
+                      {filteredResults.map((result, index) => (
                         <tr
                           key={`${result.subject}-${result.term}-${result.session}-${index}`}
                           className="transition-colors hover:bg-surface/50"

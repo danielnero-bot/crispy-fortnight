@@ -40,50 +40,109 @@ export default function TeacherResultsPage() {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[1.1fr_1.4fr]">
-          <form onSubmit={handleSubmit} className="rounded-2xl bg-surface-container-lowest p-6 shadow-sm">
+          <form
+            onSubmit={handleSubmit}
+            className="rounded-2xl bg-surface-container-lowest p-6 shadow-sm"
+          >
             <div className="grid gap-4 md:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm font-medium text-primary">Student ID</label>
-                <input name="studentId" value={formData.studentId} onChange={handleChange} className="w-full rounded-xl border border-outline-variant px-3 py-2" />
+                <label className="mb-2 block text-sm font-medium text-primary">
+                  Student ID
+                </label>
+                <input
+                  name="studentId"
+                  value={formData.studentId}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-outline-variant px-3 py-2"
+                />
               </div>
               <div>
-                <label className="mb-2 block text-sm font-medium text-primary">Student Name</label>
-                <input name="studentName" value={formData.studentName} onChange={handleChange} className="w-full rounded-xl border border-outline-variant px-3 py-2" />
+                <label className="mb-2 block text-sm font-medium text-primary">
+                  Student Name
+                </label>
+                <input
+                  name="studentName"
+                  value={formData.studentName}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-outline-variant px-3 py-2"
+                />
               </div>
               <div>
-                <label className="mb-2 block text-sm font-medium text-primary">Subject</label>
-                <input name="subject" value={formData.subject} onChange={handleChange} className="w-full rounded-xl border border-outline-variant px-3 py-2" />
+                <label className="mb-2 block text-sm font-medium text-primary">
+                  Subject
+                </label>
+                <input
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-outline-variant px-3 py-2"
+                />
               </div>
               <div>
-                <label className="mb-2 block text-sm font-medium text-primary">Term</label>
-                <select name="term" value={formData.term} onChange={handleChange} className="w-full rounded-xl border border-outline-variant px-3 py-2">
+                <label className="mb-2 block text-sm font-medium text-primary">
+                  Term
+                </label>
+                <select
+                  name="term"
+                  value={formData.term}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-outline-variant px-3 py-2"
+                >
                   <option>First Term</option>
                   <option>Second Term</option>
                   <option>Third Term</option>
                 </select>
               </div>
               <div>
-                <label className="mb-2 block text-sm font-medium text-primary">Session</label>
-                <input name="session" value={formData.session} onChange={handleChange} className="w-full rounded-xl border border-outline-variant px-3 py-2" />
+                <label className="mb-2 block text-sm font-medium text-primary">
+                  Session
+                </label>
+                <input
+                  name="session"
+                  value={formData.session}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-outline-variant px-3 py-2"
+                />
               </div>
               <div>
-                <label className="mb-2 block text-sm font-medium text-primary">CA Score</label>
-                <input type="number" name="caScore" value={formData.caScore} onChange={handleChange} className="w-full rounded-xl border border-outline-variant px-3 py-2" />
+                <label className="mb-2 block text-sm font-medium text-primary">
+                  CA Score
+                </label>
+                <input
+                  type="number"
+                  name="caScore"
+                  value={formData.caScore}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-outline-variant px-3 py-2"
+                />
               </div>
               <div>
-                <label className="mb-2 block text-sm font-medium text-primary">Exam Score</label>
-                <input type="number" name="examScore" value={formData.examScore} onChange={handleChange} className="w-full rounded-xl border border-outline-variant px-3 py-2" />
+                <label className="mb-2 block text-sm font-medium text-primary">
+                  Exam Score
+                </label>
+                <input
+                  type="number"
+                  name="examScore"
+                  value={formData.examScore}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-outline-variant px-3 py-2"
+                />
               </div>
             </div>
 
-            <button type="submit" className="mt-6 rounded-xl bg-primary px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-on-primary hover:bg-secondary">
+            <button
+              type="submit"
+              className="mt-6 rounded-xl bg-primary px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-on-primary hover:bg-secondary"
+            >
               Save result
             </button>
           </form>
 
           <div className="rounded-2xl bg-surface-container-lowest p-6 shadow-sm">
-            <h2 className="mb-4 font-headline-sm text-headline-sm text-primary">Recent entries</h2>
-            <div className="max-h-[560px] overflow-auto">
+            <h2 className="mb-4 font-headline-sm text-headline-sm text-primary">
+              Recent entries
+            </h2>
+            <div className="max-h-140 overflow-auto">
               <table className="w-full border-collapse text-left text-sm">
                 <thead>
                   <tr className="border-b border-outline-variant">
@@ -95,7 +154,10 @@ export default function TeacherResultsPage() {
                 </thead>
                 <tbody>
                   {results.map((result) => (
-                    <tr key={result.id} className="border-b border-outline-variant/60">
+                    <tr
+                      key={result.id}
+                      className="border-b border-outline-variant/60"
+                    >
                       <td className="py-3 pr-4">{result.studentName}</td>
                       <td className="py-3 pr-4">{result.subject}</td>
                       <td className="py-3 pr-4">{result.total}</td>

@@ -1,18 +1,29 @@
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
 
-export default function ProtectedRoute({ children, allowRole, redirectTo = "/login" }) {
+export default function ProtectedRoute({
+  children,
+  allowRole,
+  allowRoles,
+  redirectTo = "/login",
+}) {
   const { session, loading } = useAuth();
 
   if (loading) {
-    return <div className="flex min-h-screen items-center justify-center text-primary">Loading...</div>;
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <p>Loading...</p>
+      </div>
+    );
   }
 
   if (!session) {
     return <Navigate to={redirectTo} replace />;
   }
 
-  if (allowRole && session.role !== allowRole) {
+  const roles = allowRoles || (allowRole ? [allowRole] : null);
+
+  if (roles && !roles.includes(session.role)) {
     return <Navigate to="/dashboard" replace />;
   }
 

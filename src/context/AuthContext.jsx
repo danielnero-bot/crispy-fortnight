@@ -1,18 +1,26 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import { useEffect, useMemo, useState } from "react";
 import { isSupabaseConfigured, supabase } from "../lib/supabase";
-
-const AuthContext = createContext(null);
+import { AuthContext } from "./auth-context";
 
 const DEMO_USERS = {
-  "teacher@acmgs.com": { name: "Teacher Demo", role: "teacher" },
-  "student@acmgs.com": { name: "Student Demo", role: "student" },
-  "admin@acmgs.com": { name: "Admin Demo", role: "admin" },
+  "teacher@acmgs.com": {
+    name: "Teacher Demo",
+    role: "teacher",
+  },
+  "student@acmgs.com": {
+    name: "Amina Okafor",
+    role: "student",
+    student: {
+      id: "demo-student-101",
+      admission_no: "STD-101",
+      full_name: "Amina Okafor",
+      class_name: "SS2",
+    },
+  },
+  "admin@acmgs.com": {
+    name: "Admin Demo",
+    role: "admin",
+  },
 };
 
 function readStoredSession() {
@@ -26,42 +34,119 @@ function readStoredSession() {
 
 export function AuthProvider({ children }) {
   const [session, setSession] = useState(() => readStoredSession());
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() =>
+    Boolean(isSupabaseConfigured && supabase),
+  );
 
   useEffect(() => {
     if (!isSupabaseConfigured || !supabase) {
-      setLoading(false);
       return undefined;
     }
 
     const setup = async () => {
-      const {
-        data: { session: activeSession },
-      } = await supabase.auth.getSession();
+      try {
+        const {
+          data: { session: activeSession },
+        } = await supabase.auth.getSession();
 
-      if (activeSession) {
+        if (!activeSession) {
+          setSession(null);
+          setLoading(false);
+          return;
+        }
+
+        const { data: profile, error: profileError } = await supabase
+          .from("profiles")
+          .select("*")
+          .eq("id", activeSession.user.id)
+          .single();
+
+        if (profileError) {
+          console.error("Failed to load profile:", profileError);
+          setSession(null);
+          setLoading(false);
+          return;
+        }
+
+        let student = null;
+
+        if (profile.role === "student") {
+          const { data: studentData, error: studentError } = await supabase
+            .from("students")
+            .select("*")
+            .eq("user_id", activeSession.user.id)
+            .single();
+
+          if (studentError) {
+            console.error("Failed to load student:", studentError);
+          } else {
+            student = studentData;
+          }
+        }
+
         setSession({
           user: activeSession.user,
-          role: activeSession.user.email?.includes("teacher") ? "teacher" : "student",
+          role: profile.role,
+          profile: {
+            fullName: profile.full_name,
+            role: profile.role,
+            className: profile.class_name,
+          },
+          student,
         });
+      } catch (error) {
+        console.error("Auth setup failed:", error);
+        setSession(null);
+      } finally {
+        setLoading(false);
       }
-
-      setLoading(false);
     };
 
     setup();
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, activeSession) => {
-      setSession(
-        activeSession
-          ? {
-              user: activeSession.user,
-              role: activeSession.user.email?.includes("teacher") ? "teacher" : "student",
-            }
-          : null,
-      );
+    } = supabase.auth.onAuthStateChange(async (_event, activeSession) => {
+      if (!activeSession) {
+        setSession(null);
+        return;
+      }
+
+      const { data: profile, error: profileError } = await supabase
+        .from("profiles")
+        .select("*")
+        .eq("id", activeSession.user.id)
+        .single();
+
+      if (profileError) {
+        console.error("Failed to load profile:", profileError);
+        return;
+      }
+
+      let student = null;
+
+      if (profile.role === "student") {
+        const { data: studentData, error: studentError } = await supabase
+          .from("students")
+          .select("*")
+          .eq("user_id", activeSession.user.id)
+          .single();
+
+        if (!studentError) {
+          student = studentData;
+        }
+      }
+
+      setSession({
+        user: activeSession.user,
+        role: profile.role,
+        profile: {
+          fullName: profile.full_name,
+          role: profile.role,
+          className: profile.class_name,
+        },
+        student,
+      });
     });
 
     return () => subscription.unsubscribe();
@@ -79,9 +164,16 @@ export function AuthProvider({ children }) {
       }
 
       const demoSession = {
-        user: { email: normalizedEmail, id: normalizedEmail },
+        user: {
+          email: normalizedEmail,
+          id: normalizedEmail,
+        },
         role: demoUser.role,
-        profile: { fullName: demoUser.name, role: demoUser.role },
+        profile: {
+          fullName: demoUser.name,
+          role: demoUser.role,
+        },
+        student: demoUser.student || null,
       };
 
       localStorage.setItem("acmgs-demo-session", JSON.stringify(demoSession));
@@ -98,10 +190,41 @@ export function AuthProvider({ children }) {
       throw error;
     }
 
-    const role = data.user.email?.includes("teacher") ? "teacher" : "student";
+    const { data: profile, error: profileError } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", data.user.id)
+      .single();
+
+    if (profileError) {
+      throw profileError;
+    }
+
+    let student = null;
+
+    if (profile.role === "student") {
+      const { data: studentData, error: studentError } = await supabase
+        .from("students")
+        .select("*")
+        .eq("user_id", data.user.id)
+        .single();
+
+      if (studentError) {
+        throw studentError;
+      }
+
+      student = studentData;
+    }
+
     const nextSession = {
       user: data.user,
-      role,
+      role: profile.role,
+      profile: {
+        fullName: profile.full_name,
+        role: profile.role,
+        className: profile.class_name,
+      },
+      student,
     };
 
     setSession(nextSession);
@@ -128,14 +251,4 @@ export function AuthProvider({ children }) {
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
-
-export function useAuth() {
-  const context = useContext(AuthContext);
-
-  if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-
-  return context;
 }

@@ -1,5 +1,5 @@
 import { getResultsForStudent } from "../lib/resultStore";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
 
 export default function StudentResultsPage() {
   const { session } = useAuth();
@@ -32,7 +32,10 @@ export default function StudentResultsPage() {
             </thead>
             <tbody>
               {results.map((result) => (
-                <tr key={result.id} className="border-t border-outline-variant/60">
+                <tr
+                  key={result.id}
+                  className="border-t border-outline-variant/60"
+                >
                   <td className="px-4 py-3">{result.subject}</td>
                   <td className="px-4 py-3">{result.term}</td>
                   <td className="px-4 py-3">{result.session}</td>

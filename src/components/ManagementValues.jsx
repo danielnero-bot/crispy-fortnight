@@ -47,7 +47,7 @@ export default function ManagementValues() {
                 {text}
               </p>
             </div>
-          ))
+          ))}
         </div>
       </div>
     </section>

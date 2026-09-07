@@ -21,7 +21,7 @@ export default function Home() {
     ).matches;
     if (prefersReducedMotion) return undefined;
 
-    // Keep Lenis' virtual scroll position and ScrollTrigger's measurements in lockstep.
+    
     const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
     const onScroll = () => ScrollTrigger.update();
     const onTick = (time) => lenis.raf(time * 1000);

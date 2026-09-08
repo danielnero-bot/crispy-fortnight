@@ -9,7 +9,10 @@ import {
 
 export default function BentoGrid() {
   return (
-    <section id="boarding-life" className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="boarding-life"
+      className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+    >
       <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-950 mb-10 sm:mb-12 text-center">
         Life in Boarding
       </h2>

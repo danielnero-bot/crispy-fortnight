@@ -4,12 +4,10 @@ import { Menu, X } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 const navLinks = [
-  { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Academics", href: "/academics" },
   { name: "Admissions", href: "/admissions" },
   { name: "Student Experience", href: "/student-life" },
-  { name: "Management", href: "/management" },
 ];
 
 export default function Navbar() {

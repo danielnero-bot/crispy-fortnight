@@ -9,7 +9,7 @@ export default function FacilitiesPreview() {
             Facilities Preview
           </h2>
           <a
-            href="/boarding#facilities"
+            href="/student-life#facilities"
             className="text-rose-700 hover:text-slate-950 text-xs font-semibold uppercase tracking-widest transition-colors inline-flex min-h-[44px] items-center py-2"
           >
             View All <ArrowRight className="w-4 h-4 ml-1.5" />

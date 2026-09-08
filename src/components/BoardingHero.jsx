@@ -1,6 +1,6 @@
 export default function BoardingHero() {
   return (
-    <section className="relative min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] flex items-center justify-center pt-20 pb-16">
+    <section id="student-experience" className="relative min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] flex items-center justify-center pt-20 pb-16">
       <div className="absolute inset-0 z-0">
         <div
           className="w-full h-full bg-cover bg-center"
@@ -15,9 +15,8 @@ export default function BoardingHero() {
           Living, Learning, and Leading at ACMGS Elelenwo
         </h1>
         <p className="font-body text-base sm:text-lg md:text-xl max-w-2xl mx-auto opacity-90 leading-relaxed">
-          Boarding at ACMGS is a transformative community experience guided by
-          the Diocese of Evo, building character, self-reliance, and lifelong
-          sisterhood in a secure Christian environment.
+          From boarding and house life to clubs, faith, leadership, and friendship,
+          every part of the ACMGS experience helps girls grow with confidence.
         </p>
       </div>
     </section>

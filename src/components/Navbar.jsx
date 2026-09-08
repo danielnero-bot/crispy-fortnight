@@ -8,8 +8,7 @@ const navLinks = [
   { name: "About", href: "/about" },
   { name: "Academics", href: "/academics" },
   { name: "Admissions", href: "/admissions" },
-  { name: "Boarding", href: "/boarding" },
-  { name: "Student Life", href: "/student-life" },
+  { name: "Student Experience", href: "/student-life" },
   { name: "Management", href: "/management" },
 ];
 
@@ -89,10 +88,16 @@ export default function Navbar() {
         {/* Desktop Actions */}
         <div className="hidden items-center space-x-4 md:flex">
           <Link
-            to="/login"
+            to="/check-result"
             className="text-xs font-semibold uppercase tracking-[0.1em] text-primary transition-colors duration-300 hover:text-secondary px-3 py-2"
           >
-            Portal
+            Check Result
+          </Link>
+          <Link
+            to="/login"
+            className="inline-flex h-11 items-center justify-center border border-primary px-5 text-xs font-semibold uppercase tracking-[0.1em] text-primary transition-colors duration-300 hover:border-secondary hover:text-secondary"
+          >
+            Teacher &amp; Admin Login
           </Link>
           <Link
             to="/admissions"
@@ -137,11 +142,18 @@ export default function Navbar() {
 
             <li className="pt-3 border-t border-outline-variant/20 mt-2 space-y-2">
               <Link
-                to="/login"
+                to="/check-result"
                 onClick={() => setIsOpen(false)}
                 className="flex min-h-[44px] w-full items-center justify-center rounded-lg border border-outline-variant px-4 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-primary transition-colors hover:bg-surface-container"
               >
-                Portal Login
+                Check Student Result
+              </Link>
+              <Link
+                to="/login"
+                onClick={() => setIsOpen(false)}
+                className="flex min-h-[44px] w-full items-center justify-center rounded-lg border border-primary px-4 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-primary transition-colors hover:border-secondary hover:bg-surface-container hover:text-secondary"
+              >
+                Teacher &amp; Admin Login
               </Link>
               <Link
                 to="/admissions"

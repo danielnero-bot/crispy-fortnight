@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import principalImage from "../assets/images/principal.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,15 +52,21 @@ export default function PrincipalMessage() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-surface py-16 sm:py-20 md:py-24 overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="bg-surface py-16 sm:py-20 md:py-24 overflow-hidden"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
           {/* Image */}
-          <div ref={imageRef} className="relative isolate lg:col-span-5 max-w-md mx-auto lg:max-w-none w-full">
+          <div
+            ref={imageRef}
+            className="relative isolate lg:col-span-5 max-w-md mx-auto lg:max-w-none w-full"
+          >
             <div className="relative z-10 aspect-[4/5] w-full overflow-hidden border border-on-tertiary-container/20 bg-surface-container-high shadow-lg rounded-lg">
               <img
                 ref={imageRef}
-                src="../assets/images/principal.jpg"
+                src={principalImage}
                 alt="Principal Mrs. Chinyere Uchenna Ordu"
                 className="h-full w-full object-cover"
               />

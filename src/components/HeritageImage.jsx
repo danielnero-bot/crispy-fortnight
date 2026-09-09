@@ -1,5 +1,7 @@
+import heritageImage from "../assets/images/heritage.jpg";
+
 export default function HeritageImage({
-  src = "../assets/images/heritage.jpg",
+  src = heritageImage,
   alt = "Archival image of ACMGS",
 }) {
   return (

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Link } from "react-router-dom";
+import heroImage from "../assets/images/hero.jpg";
 
 export default function Hero() {
   const heroRef = useRef(null);
@@ -99,8 +100,7 @@ export default function Hero() {
           ref={backgroundRef}
           className="h-full w-full origin-center bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url('../assets/images/hero.jpg')",
+            backgroundImage: `url(${heroImage})`,
           }}
         />
 

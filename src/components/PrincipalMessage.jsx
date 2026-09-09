@@ -59,7 +59,7 @@ export default function PrincipalMessage() {
             <div className="relative z-10 aspect-[4/5] w-full overflow-hidden border border-on-tertiary-container/20 bg-surface-container-high shadow-lg rounded-lg">
               <img
                 ref={imageRef}
-                src="https://scontent.fabb1-3.fna.fbcdn.net/v/t39.30808-6/522624684_1173371928141146_8708216747425989669_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1080&ctp=s720x1080&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_ohc=jNLGkO6YLwMQ7kNvwHWCBRW&_nc_oc=AdqhQ7i6vD48VzGd9GdnVjonNNt6HCTTfDoUAoS6IfKCriQ0RAUA8N8CvoffrbcZGGDdERWRI9tgpoGlzTsaNpqz&_nc_zt=23&_nc_ht=scontent.fabb1-3.fna&_nc_gid=hA_ySHFZTXIIWLlvmrRSDA&_nc_ss=78289&oh=00_AQLW4A8TLhle8rW0fYsKVPSr7pF4OcE9tcO1xrmuLtVPUQ&oe=6AA06534"
+                src="../../assets/images/principal.jpg"
                 alt="Principal Mrs. Chinyere Uchenna Ordu"
                 className="h-full w-full object-cover"
               />

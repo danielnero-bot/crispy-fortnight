@@ -150,6 +150,16 @@ alter table public.admin_activity_log enable row level security;
 alter table public.attendance_summaries enable row level security;
 alter table public.fee_payments enable row level security;
 
+create or replace function public.current_profile_role()
+returns text
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select role from public.profiles where id = auth.uid();
+$$;
+
 do $$
 declare
   table_name text;
@@ -160,7 +170,7 @@ begin
     'attendance_summaries', 'fee_payments'
   ] loop
     execute format('drop policy if exists "Admins manage %1$s" on public.%1$s', table_name);
-    execute format('create policy "Admins manage %1$s" on public.%1$s for all using (exists (select 1 from public.profiles p where p.id = auth.uid() and p.role = ''admin'')) with check (exists (select 1 from public.profiles p where p.id = auth.uid() and p.role = ''admin''))', table_name);
+    execute format('create policy "Admins manage %1$s" on public.%1$s for all using (public.current_profile_role() = ''admin'') with check (public.current_profile_role() = ''admin'')', table_name);
   end loop;
 end $$;
 
@@ -194,10 +204,7 @@ on public.profiles
 for select
 using (
   auth.uid() = id
-  or exists (
-    select 1 from public.profiles p
-    where p.id = auth.uid() and p.role = 'admin'
-  )
+  or public.current_profile_role() = 'admin'
 );
 
 drop policy if exists "Profiles editable by owner" on public.profiles;
@@ -212,10 +219,7 @@ on public.students
 for select
 using (
   auth.uid() = user_id
-  or exists (
-    select 1 from public.profiles p
-    where p.id = auth.uid() and p.role in ('teacher', 'admin')
-  )
+  or public.current_profile_role() in ('teacher', 'admin')
 );
 
 drop policy if exists "Students insertable by teacher or admin" on public.students;
@@ -223,10 +227,7 @@ create policy "Students insertable by teacher or admin"
 on public.students
 for insert
 with check (
-  exists (
-    select 1 from public.profiles p
-    where p.id = auth.uid() and p.role in ('teacher', 'admin')
-  )
+  public.current_profile_role() in ('teacher', 'admin')
 );
 
 drop policy if exists "Students updatable by teacher or admin" on public.students;
@@ -234,10 +235,7 @@ create policy "Students updatable by teacher or admin"
 on public.students
 for update
 using (
-  exists (
-    select 1 from public.profiles p
-    where p.id = auth.uid() and p.role in ('teacher', 'admin')
-  )
+  public.current_profile_role() in ('teacher', 'admin')
 );
 
 drop policy if exists "Subjects viewable by all authenticated users" on public.subjects;
@@ -251,16 +249,10 @@ create policy "Subjects managed by teacher or admin"
 on public.subjects
 for all
 using (
-  exists (
-    select 1 from public.profiles p
-    where p.id = auth.uid() and p.role in ('teacher', 'admin')
-  )
+  public.current_profile_role() in ('teacher', 'admin')
 )
 with check (
-  exists (
-    select 1 from public.profiles p
-    where p.id = auth.uid() and p.role in ('teacher', 'admin')
-  )
+  public.current_profile_role() in ('teacher', 'admin')
 );
 
 drop policy if exists "Results viewable by student or teacher/admin" on public.results;
@@ -274,8 +266,7 @@ using (
     where s.id = public.results.student_id
   )
   or exists (
-    select 1 from public.profiles p
-    where p.id = auth.uid() and p.role in ('teacher', 'admin')
+    select 1 where public.current_profile_role() in ('teacher', 'admin')
   )
 );
 
@@ -284,10 +275,7 @@ create policy "Results insertable by teacher or admin"
 on public.results
 for insert
 with check (
-  exists (
-    select 1 from public.profiles p
-    where p.id = auth.uid() and p.role in ('teacher', 'admin')
-  )
+  public.current_profile_role() in ('teacher', 'admin')
 );
 
 drop policy if exists "Results updatable by teacher or admin" on public.results;
@@ -295,10 +283,7 @@ create policy "Results updatable by teacher or admin"
 on public.results
 for update
 using (
-  exists (
-    select 1 from public.profiles p
-    where p.id = auth.uid() and p.role in ('teacher', 'admin')
-  )
+  public.current_profile_role() in ('teacher', 'admin')
 );
 
 drop policy if exists "Results deletable by admin" on public.results;
@@ -306,8 +291,5 @@ create policy "Results deletable by admin"
 on public.results
 for delete
 using (
-  exists (
-    select 1 from public.profiles p
-    where p.id = auth.uid() and p.role = 'admin'
-  )
+  public.current_profile_role() = 'admin'
 );

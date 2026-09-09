@@ -1,8 +1,10 @@
+import academicImage from "../assets/images/a2.jpg";
+
 export default function AcademicsHero({
   eyebrow = "Academic Life at ACMGS",
   title = "Education, moral formation, and spiritual growth",
   description = "Our Nigerian National Curriculum is delivered across Junior and Senior Secondary School, with Science, Arts, and Commercial pathways aligned with WAEC and NECO standards.",
-  backgroundImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuDXV8ZyOqXDYN9bxYfxUfMLjBXNEeTlwCKybREndTOh4sZs54bh-lcwn0pX8AZjQdSG92rxthpKMWngJ5Dx9m5xkATVAqbcSebvSJchrXQUBTvDwSDkoUb09e77rFZwM-o4C51EymN4mCvBTjTsIzgktL7Eo4wujAg5PeNr-_XaAvfXV9OYnufEbjqqGviw4ybDZWO5nvH4VDllSLChp3sBQI6i9uE-YyELha4b5whfERp6bj-yKSkWwQ",
+  backgroundImage = academicImage,
 }) {
   return (
     <section className="relative min-h-[50vh] sm:min-h-[60vh] md:min-h-[520px] flex items-center justify-center overflow-hidden bg-surface-container-low">

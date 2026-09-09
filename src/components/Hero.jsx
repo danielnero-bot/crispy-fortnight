@@ -100,7 +100,7 @@ export default function Hero() {
           className="h-full w-full origin-center bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('../../assets/images/hero.jpg')",
+              "url('../assets/images/hero.jpg')",
           }}
         />
 

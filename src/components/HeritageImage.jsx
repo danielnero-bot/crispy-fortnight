@@ -1,5 +1,5 @@
 export default function HeritageImage({
-  src = "../../assets/images/seconhero.jpg",
+  src = "../assets/images/heritage.jpg",
   alt = "Archival image of ACMGS",
 }) {
   return (

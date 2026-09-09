@@ -12,7 +12,8 @@ import TeacherResultsPage from "./pages/TeacherResultsPage";
 import StudentResultsPage from "./pages/StudentResultsPage";
 import CheckResultPage from "./pages/CheckResultPagee";
 import AdminDashboard from "./pages/admin/AdminDashboard";
-
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
           <Route path="/student-life" element={<StudentLife />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/check-result" element={<CheckResultPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
           <Route
             path="/dashboard"
             element={

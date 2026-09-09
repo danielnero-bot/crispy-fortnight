@@ -59,7 +59,7 @@ export default function PrincipalMessage() {
             <div className="relative z-10 aspect-[4/5] w-full overflow-hidden border border-on-tertiary-container/20 bg-surface-container-high shadow-lg rounded-lg">
               <img
                 ref={imageRef}
-                src="../../assets/images/principal.jpg"
+                src="../assets/images/principal.jpg"
                 alt="Principal Mrs. Chinyere Uchenna Ordu"
                 className="h-full w-full object-cover"
               />

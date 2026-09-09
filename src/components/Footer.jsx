@@ -22,8 +22,8 @@ const footerLinkGroups = [
   {
     heading: "Legal",
     links: [
-      { label: "Privacy Policy", href: "/" },
-      { label: "Terms of Service", href: "/" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms of Service", href: "/terms-and-conditions" },
     ],
   },
 ];

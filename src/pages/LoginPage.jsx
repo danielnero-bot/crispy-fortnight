@@ -5,27 +5,24 @@ import { useAuth } from "../context/useAuth";
 export default function LoginPage() {
   const navigate = useNavigate();
   const { signIn, session } = useAuth();
-  const [email, setEmail] = useState("teacher@acmgs.com");
+  const [email, setEmail] = useState("admin@acmgs.com");
   const [password, setPassword] = useState("demo123");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const getRoleDestination = (role) => {
+    if (role === "teacher") return "/teacher/results";
+    if (role === "student") return "/student/results";
+    if (role === "admin") return "/admin";
+    return "/dashboard";
+  };
 
   useEffect(() => {
     if (!session) {
       return;
     }
 
-    if (session.role === "teacher") {
-      navigate("/teacher/results", { replace: true });
-      return;
-    }
-
-    if (session.role === "student") {
-      navigate("/student/results", { replace: true });
-      return;
-    }
-
-    navigate("/dashboard", { replace: true });
+    navigate(getRoleDestination(session.role), { replace: true });
   }, [navigate, session]);
 
   const handleSubmit = async (event) => {
@@ -36,13 +33,7 @@ export default function LoginPage() {
     try {
       const result = await signIn({ email, password });
 
-      if (result?.role === "teacher") {
-        navigate("/teacher/results", { replace: true });
-      } else if (result?.role === "student") {
-        navigate("/student/results", { replace: true });
-      } else {
-        navigate("/dashboard", { replace: true });
-      }
+      navigate(getRoleDestination(result?.role), { replace: true });
     } catch (submitError) {
       setError(submitError.message || "Unable to sign in.");
     } finally {

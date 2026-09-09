@@ -66,14 +66,46 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/admin" element={<AdminDashboard />} />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute allowRole="admin">
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/admin/admissions"
-            element={<AdmissionsManagementPage />}
+            element={
+              <ProtectedRoute allowRole="admin">
+                <AdmissionsManagementPage />
+              </ProtectedRoute>
+            }
           />
-          <Route path="/admin/students" element={<StudentManagementPage />} />
-          <Route path="/admin/academics" element={<AcademicManagementPage />} />
-          <Route path="/admin/boarding" element={<BoardingManagementPage />} />
+          <Route
+            path="/admin/students"
+            element={
+              <ProtectedRoute allowRole="admin">
+                <StudentManagementPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/academics"
+            element={
+              <ProtectedRoute allowRole="admin">
+                <AcademicManagementPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/boarding"
+            element={
+              <ProtectedRoute allowRole="admin">
+                <BoardingManagementPage />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

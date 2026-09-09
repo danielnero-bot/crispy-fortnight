@@ -23,6 +23,12 @@ const DEMO_USERS = {
   },
 };
 
+function normalizeRole(role) {
+  return String(role ?? "")
+    .trim()
+    .toLowerCase();
+}
+
 function readStoredSession() {
   try {
     const saved = localStorage.getItem("acmgs-demo-session");
@@ -84,12 +90,14 @@ export function AuthProvider({ children }) {
           }
         }
 
+        const role = normalizeRole(profile.role);
+
         setSession({
           user: activeSession.user,
-          role: profile.role,
+          role,
           profile: {
             fullName: profile.full_name,
-            role: profile.role,
+            role,
             className: profile.class_name,
           },
           student,
@@ -137,12 +145,14 @@ export function AuthProvider({ children }) {
         }
       }
 
+      const role = normalizeRole(profile.role);
+
       setSession({
         user: activeSession.user,
-        role: profile.role,
+        role,
         profile: {
           fullName: profile.full_name,
-          role: profile.role,
+          role,
           className: profile.class_name,
         },
         student,
@@ -216,12 +226,14 @@ export function AuthProvider({ children }) {
       student = studentData;
     }
 
+    const role = normalizeRole(profile.role);
+
     const nextSession = {
       user: data.user,
-      role: profile.role,
+      role,
       profile: {
         fullName: profile.full_name,
-        role: profile.role,
+        role,
         className: profile.class_name,
       },
       student,

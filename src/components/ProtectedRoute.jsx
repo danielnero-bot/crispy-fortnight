@@ -1,6 +1,13 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../context/useAuth";
 
+function getRouteForRole(role) {
+  if (role === "teacher") return "/teacher/results";
+  if (role === "student") return "/student/results";
+  if (role === "admin") return "/admin";
+  return "/dashboard";
+}
+
 export default function ProtectedRoute({
   children,
   allowRole,
@@ -24,7 +31,7 @@ export default function ProtectedRoute({
   const roles = allowRoles || (allowRole ? [allowRole] : null);
 
   if (roles && !roles.includes(session.role)) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to={getRouteForRole(session.role)} replace />;
   }
 
   return children;

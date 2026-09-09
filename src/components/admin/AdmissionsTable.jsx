@@ -65,21 +65,11 @@ export default function AdmissionsTable() {
             Review applicants currently moving through the admission pipeline.
           </p>
         </div>
-
-        <button
-          className="
-            rounded-lg bg-[#0b1f3a] px-4 py-2.5
-            text-xs font-semibold text-white
-            transition hover:bg-[#16345d]
-          "
-        >
-          View All Admissions
-        </button>
       </div>
 
       {/* Table */}
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[950px]">
+        <table className="w-full">
           <thead>
             <tr className="border-b border-slate-100 bg-slate-50/70 text-left">
               <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wide text-slate-400">
@@ -126,7 +116,7 @@ export default function AdmissionsTable() {
         </p>
 
         <button className="text-xs font-semibold text-[#0b1f3a] hover:underline">
-          Manage pipeline →
+          Export CSV
         </button>
       </div>
     </div>

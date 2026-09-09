@@ -6,9 +6,6 @@ import {
   GraduationCap,
   BedDouble,
   Wallet,
-  UserRoundCog,
-  Megaphone,
-  Settings,
   X,
 } from "lucide-react";
 
@@ -39,19 +36,9 @@ const navigation = [
     icon: BedDouble,
   },
   {
-    label: "Staff",
-    path: "/admin/staff",
-    icon: UserRoundCog,
-  },
-  {
     label: "Fees & Bursary",
     path: "/admin/fees",
     icon: Wallet,
-  },
-  {
-    label: "Announcements",
-    path: "/admin/announcements",
-    icon: Megaphone,
   },
 ];
 
@@ -104,13 +91,9 @@ export default function Sidebar({ isOpen, onClose }) {
             Current Session
           </p>
 
-          <p className="mt-1 font-semibold text-[#0b1f3a]">
-            2025 / 2026
-          </p>
+          <p className="mt-1 font-semibold text-[#0b1f3a]">2025 / 2026</p>
 
-          <p className="mt-1 text-xs text-slate-500">
-            First Term
-          </p>
+          <p className="mt-1 text-xs text-slate-500">First Term</p>
         </div>
 
         {/* Navigation */}
@@ -147,36 +130,11 @@ export default function Sidebar({ isOpen, onClose }) {
               );
             })}
           </div>
-
-          <p className="mb-3 mt-8 px-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
-            System
-          </p>
-
-          <NavLink
-            to="/admin/settings"
-            onClick={onClose}
-            className={({ isActive }) =>
-              `
-              flex items-center gap-3 rounded-xl px-3 py-3
-              text-sm font-medium transition
-              ${
-                isActive
-                  ? "bg-[#0b1f3a] text-white"
-                  : "text-slate-600 hover:bg-slate-100"
-              }
-              `
-            }
-          >
-            <Settings size={19} strokeWidth={1.8} />
-            <span>Settings</span>
-          </NavLink>
         </nav>
 
         {/* Footer */}
         <div className="border-t border-slate-200 p-5">
-          <p className="text-xs font-medium text-slate-500">
-            Diocese of Evo
-          </p>
+          <p className="text-xs font-medium text-slate-500">Diocese of Evo</p>
 
           <p className="mt-1 text-xs text-slate-400">
             ACMGS Administrative Portal

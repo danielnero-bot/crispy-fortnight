@@ -12,6 +12,10 @@ import TeacherResultsPage from "./pages/TeacherResultsPage";
 import StudentResultsPage from "./pages/StudentResultsPage";
 import CheckResultPage from "./pages/CheckResultPagee";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdmissionsManagementPage from "./pages/admin/AdmissionsManagementPage";
+import StudentManagementPage from "./pages/admin/StudentManagementPage";
+import AcademicManagementPage from "./pages/admin/AcademicManagementPage";
+import BoardingManagementPage from "./pages/admin/BoardingManagementPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 
@@ -32,7 +36,10 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/check-result" element={<CheckResultPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
+          <Route
+            path="/terms-and-conditions"
+            element={<TermsAndConditionsPage />}
+          />
           <Route
             path="/dashboard"
             element={
@@ -60,6 +67,13 @@ function App() {
             }
           />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route
+            path="/admin/admissions"
+            element={<AdmissionsManagementPage />}
+          />
+          <Route path="/admin/students" element={<StudentManagementPage />} />
+          <Route path="/admin/academics" element={<AcademicManagementPage />} />
+          <Route path="/admin/boarding" element={<BoardingManagementPage />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

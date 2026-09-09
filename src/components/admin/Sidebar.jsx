@@ -43,6 +43,9 @@ const navigation = [
 ];
 
 export default function Sidebar({ isOpen, onClose }) {
+  const currentYear = new Date().getFullYear();
+  const nextYear = currentYear + 1;
+
   return (
     <>
       {/* Mobile overlay */}
@@ -91,9 +94,11 @@ export default function Sidebar({ isOpen, onClose }) {
             Current Session
           </p>
 
-          <p className="mt-1 font-semibold text-[#0b1f3a]">2025 / 2026</p>
+          <p className="mt-1 font-semibold text-[#0b1f3a]">
+            {currentYear} / {nextYear}
+          </p>
 
-          <p className="mt-1 text-xs text-slate-500">First Term</p>
+          <p className="mt-1 text-xs text-slate-500">Current term</p>
         </div>
 
         {/* Navigation */}

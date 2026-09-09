@@ -6,7 +6,7 @@ import {
 
 import BenchmarkCard from "./Benchmark";
 
-export default function AcademicBenchmark() {
+export default function AcademicBenchmark({ benchmarks = [], attendance }) {
   return (
     <section className="mt-6">
       {/* Section header */}
@@ -44,7 +44,7 @@ export default function AcademicBenchmark() {
             </p>
 
             <p className="mt-1 text-xl font-bold text-slate-800">
-              99.1%
+              {attendance?.attendance_percent ?? "-"}%
             </p>
           </div>
 
@@ -64,7 +64,7 @@ export default function AcademicBenchmark() {
             </p>
 
             <p className="mt-1 text-xl font-bold text-slate-800">
-              96.0%
+              {attendance?.ca_assessment_percent ?? "-"}%
             </p>
           </div>
 
@@ -76,35 +76,16 @@ export default function AcademicBenchmark() {
 
       {/* Faculty cards */}
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        <BenchmarkCard
-          faculty="Science Stream"
-          className="SSS 3"
-          score={81.4}
-          target={85}
-          icon="science"
-          description="Science performance is being driven primarily by strong Mathematics and Further Mathematics results."
-          highlight="Math & Further Math leading"
-        />
-
-        <BenchmarkCard
-          faculty="Arts & Humanities"
-          className="Senior School"
-          score={86.2}
-          target={85}
-          icon="arts"
-          description="Strong overall performance, with Literature recording a particularly high distinction rate."
-          highlight="Literature: 94% distinction"
-        />
-
-        <BenchmarkCard
-          faculty="Commercial Faculty"
-          className="Senior School"
-          score={78.9}
-          target={85}
-          icon="commercial"
-          description="Performance remains below the benchmark, with focused remediation clinics scheduled."
-          highlight="Accounting remediation scheduled"
-        />
+        {benchmarks.length === 0 ? <p className="text-sm text-slate-500">No academic benchmarks recorded.</p> : benchmarks.map((benchmark) => <BenchmarkCard
+          key={benchmark.id}
+          faculty={benchmark.faculty}
+          className={benchmark.class_name}
+          score={Number(benchmark.score)}
+          target={Number(benchmark.target)}
+          icon={benchmark.icon}
+          description={benchmark.description}
+          highlight={benchmark.highlight}
+        />)}
       </div>
     </section>
   );

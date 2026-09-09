@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   BellRing,
@@ -17,6 +17,8 @@ import AcademicBenchmark from "../../components/admin/AcademicBenchmark";
 import HouseSystemStatus from "../../components/admin/HouseSystemStatus";
 import AcademicDiary from "../../components/admin/AcademicDiary";
 import SecurityAuditCard from "../../components/admin/SecurityAuditCard";
+import AdministrativeLog from "../../components/admin/AdministrativeLog";
+import { loadAdminDashboard } from "../../lib/adminDashboard";
 
 const quickActions = [
   { label: "Add Student", icon: Plus, tone: "bg-[#0b1f3a] text-white" },
@@ -33,14 +35,26 @@ const quickActions = [
   },
 ];
 
-const priorityAlerts = [
-  "26 application dossiers need document verification.",
-  "3 fee payment follow-ups are overdue this week.",
-  "2 classes are below the expected attendance threshold.",
-];
-
 export default function AdminDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [dashboard, setDashboard] = useState(null);
+
+  useEffect(() => {
+    loadAdminDashboard().then(setDashboard);
+  }, []);
+
+  const data = dashboard || {
+    students: [],
+    admissions: [],
+    houses: [],
+    benchmarks: [],
+    diaryEntries: [],
+    securityChecks: [],
+    alerts: [],
+    activity: [],
+    attendance: null,
+    fees: [],
+  };
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -93,7 +107,7 @@ export default function AdminDashboard() {
           </section>
 
           <div className="mb-6 grid gap-6 xl:grid-cols-[1.8fr_1fr]">
-            <StatCards />
+            <StatCards data={data} />
 
             <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="flex items-center gap-3">
@@ -111,31 +125,42 @@ export default function AdminDashboard() {
               </div>
 
               <ul className="mt-5 space-y-3">
-                {priorityAlerts.map((alert) => (
-                  <li
-                    key={alert}
-                    className="flex gap-3 rounded-xl bg-slate-50 p-3 text-sm text-slate-600"
-                  >
-                    <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-amber-500" />
-                    <span>{alert}</span>
-                  </li>
-                ))}
+                {data.alerts.length === 0 ? (
+                  <p className="text-sm text-slate-500">No active alerts.</p>
+                ) : (
+                  data.alerts.map((alert) => (
+                    <li
+                      key={alert.id}
+                      className="flex gap-3 rounded-xl bg-slate-50 p-3 text-sm text-slate-600"
+                    >
+                      <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-amber-500" />
+                      <span>{alert.message}</span>
+                    </li>
+                  ))
+                )}
               </ul>
             </section>
           </div>
 
           <div className="mt-6">
-            <AdmissionsTable />
+            <AdmissionsTable admissions={data.admissions} />
           </div>
-          <AcademicBenchmark />
+          <AcademicBenchmark
+            benchmarks={data.benchmarks}
+            attendance={data.attendance}
+          />
 
           <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-2">
-            <AcademicDiary />
-            <SecurityAuditCard />
+            <AcademicDiary diaryEntries={data.diaryEntries} />
+            <SecurityAuditCard checks={data.securityChecks} />
           </div>
 
           <div className="mt-6 grid grid-cols-1 gap-6 xl:grid-cols-1">
-            <HouseSystemStatus />
+            <HouseSystemStatus houses={data.houses} />
+          </div>
+
+          <div className="mt-6">
+            <AdministrativeLog logs={data.activity} />
           </div>
         </div>
       </main>

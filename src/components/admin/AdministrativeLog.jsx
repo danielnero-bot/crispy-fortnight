@@ -1,34 +1,7 @@
 import { Activity, ArrowUpRight } from "lucide-react";
 import LogItem from "./LogItem";
 
-const logs = [
-  {
-    type: "endowment",
-    title: "Diocesan Endowment Disbursement Confirmed",
-    time: "18m ago",
-    description:
-      "Funds have been confirmed for the science laboratory upgrade.",
-    amount: "₦12.5M science lab upgrade",
-  },
-  {
-    type: "dormitory",
-    title: "Pastoral Dormitory Report Submitted",
-    time: "1h 10m",
-    description:
-      "Latest boarding and pastoral dormitory report submitted successfully.",
-    amount: "All clear",
-  },
-  {
-    type: "assessment",
-    title: "Continuous Assessment Roster Published",
-    time: "3h ago",
-    description:
-      "Assessment dates and class rosters have been deployed to the academic system.",
-    amount: "Assessment dates deployed",
-  },
-];
-
-export default function AdministrativeLog() {
+export default function AdministrativeLog({ logs = [] }) {
   return (
     <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
       {/* Header */}
@@ -57,7 +30,9 @@ export default function AdministrativeLog() {
 
       {/* Activity */}
       <div className="mt-3">
-        {logs.map((log) => (
+        {logs.length === 0 ? (
+          <p className="py-6 text-sm text-slate-500">No recent activity.</p>
+        ) : logs.map((log) => (
           <LogItem
             key={log.title}
             type={log.type}

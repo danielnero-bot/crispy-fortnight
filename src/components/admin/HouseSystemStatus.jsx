@@ -1,34 +1,7 @@
 import { ArrowUpRight, Home } from "lucide-react";
 import HouseCard from "./HouseCard";
 
-const houses = [
-  {
-    name: "Faith",
-    occupied: 210,
-    capacity: 215,
-    housemistress: "Mrs D. Lawson",
-    status: "All clear",
-    note: "Preparation scheduled for 19:30",
-  },
-  {
-    name: "Hope",
-    occupied: 218,
-    capacity: 220,
-    housemistress: "Mrs E. Jumbo",
-    status: "2 students under rest",
-    note: "Pastoral monitoring in progress",
-  },
-  {
-    name: "Charity",
-    occupied: 214,
-    capacity: 215,
-    housemistress: "Mrs R. Wilcox",
-    status: "All clear",
-    note: "100% evening devotions",
-  },
-];
-
-export default function HouseSystemStatus() {
+export default function HouseSystemStatus({ houses = [] }) {
   return (
     <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
       {/* Header */}
@@ -57,7 +30,7 @@ export default function HouseSystemStatus() {
 
       {/* Houses */}
       <div className="mt-4 space-y-3">
-        {houses.map((house) => (
+        {houses.length === 0 ? <p className="text-sm text-slate-500">No boarding houses configured.</p> : houses.map((house) => (
           <HouseCard
             key={house.name}
             {...house}

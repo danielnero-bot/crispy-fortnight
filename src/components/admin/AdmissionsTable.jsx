@@ -1,57 +1,6 @@
 import AdmissionRow from "./AdmissionRow";
 
-const admissions = [
-  {
-    name: "Chioma Joy Adeleke",
-    applicationId: "APP-2025-0891",
-    className: "JSS 1",
-    category: "Junior Secondary",
-    house: "Faith House",
-    assessment: "88%",
-    assessmentType: "Entrance Exam",
-    status: "Interview Pending",
-    subStatus: "Interview pending",
-    action: "Interview",
-  },
-  {
-    name: "Somtochukwu Amadi",
-    applicationId: "APP-2025-0904",
-    className: "SSS 1",
-    category: "Science",
-    house: "Hope House",
-    assessment: "9 Distinctions",
-    assessmentType: "BECE",
-    status: "Docs Verified",
-    subStatus: "Ready for approval",
-    action: "Approve",
-  },
-  {
-    name: "Kosisochukwu Briggs",
-    applicationId: "APP-2025-0772",
-    className: "JSS 1",
-    category: "Day Scholar",
-    house: "Faith House",
-    assessment: "92%",
-    assessmentType: "Dean's List Award",
-    status: "Admitted",
-    subStatus: "Enrolled",
-    action: "Print",
-  },
-  {
-    name: "Blessing N. Pepple",
-    applicationId: "APP-2025-1022",
-    className: "SSS 1",
-    category: "Arts",
-    house: "Inter-Diocese Transfer",
-    assessment: "Pending",
-    assessmentType: "Archival Transfer",
-    status: "Awaiting Transcripts",
-    subStatus: "Awaiting transcripts",
-    action: "Query",
-  },
-];
-
-export default function AdmissionsTable() {
+export default function AdmissionsTable({ admissions = [] }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       {/* Header */}
@@ -99,12 +48,29 @@ export default function AdmissionsTable() {
           </thead>
 
           <tbody>
-            {admissions.map((admission) => (
-              <AdmissionRow
-                key={admission.applicationId}
-                admission={admission}
-              />
-            ))}
+            {admissions.length === 0 ? (
+              <tr>
+                <td
+                  colSpan="6"
+                  className="px-5 py-8 text-center text-sm text-slate-500"
+                >
+                  No admissions found.
+                </td>
+              </tr>
+            ) : (
+              admissions.map((record) => {
+                const admission = {
+                  ...record,
+                  name: record.applicant_name,
+                  applicationId: record.application_id,
+                  className: record.class_name,
+                  assessmentType: record.assessment_type,
+                  subStatus: record.sub_status,
+                  action: record.action || "Review",
+                };
+                return <AdmissionRow key={record.id} admission={admission} />;
+              })
+            )}
           </tbody>
         </table>
       </div>
@@ -112,7 +78,7 @@ export default function AdmissionsTable() {
       {/* Footer */}
       <div className="flex items-center justify-between border-t border-slate-100 px-5 py-4">
         <p className="text-xs text-slate-400">
-          Showing 4 of 142 pending admissions
+          Showing {admissions.length} admissions
         </p>
 
         <button className="text-xs font-semibold text-[#0b1f3a] hover:underline">

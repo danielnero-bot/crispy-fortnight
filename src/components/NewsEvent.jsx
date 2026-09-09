@@ -2,6 +2,9 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaArrowRight } from "react-icons/fa6";
+import congregationImage from "../assets/images/congregation.jpg";
+import christianFormationImage from "../assets/images/christian-formation.jpg";
+import buildingImage from "../assets/images/building.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,8 +15,7 @@ const newsItems = [
     title: "Academic Life at ACMGS",
     description:
       "Explore the academic structure, subjects, and pathways available across Junior and Senior Secondary School.",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAPjDgrV2FFFgjhFiOG_ZgTw7FWuaSOxTiQTXGjMO33TgsAWK0BVjl8-VhPkFjB4PqXYOX4_dEDGCi1iMpkSQbEmopvuXmmvZfBwpv2gXneJS1rsMPVWoC4Vmz0RoMl_dQUUB-NcTnbaYtiM-FK66l6Em7LP2OKp5k2cXpPcypidlki4HuXxKMeg9yppBklw0RA3YfJxt5UnzObM8tE43PE5k3d9Yjkt4HRF4a8XtL6LM6fgX3pm4en4Q",
+    image: congregationImage,
     alt: "Students in a science laboratory wearing lab coats, working with beakers and microscopes.",
   },
   {
@@ -22,8 +24,7 @@ const newsItems = [
     title: "Christian Formation",
     description:
       "Discover an education shaped by the school's Christian mission and Anglican affiliation.",
-    image:
-      "https://scontent.fabb1-2.fna.fbcdn.net/v/t39.30808-6/489410115_1087404116737928_2241706423675807908_n.jpg?stp=dst-jpg_tt6&cstp=mx1280x854&ctp=s1280x854&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=leTqHSc8u8QQ7kNvwEaKCka&_nc_oc=Adq8rKtFu7IlK3pWpZ4VRh3wRZiJc4m36FouR5-5lWuRCazvYG8uH0K65hsWrNE48kKFx-_CSwTRK24Rpu_nXrOs&_nc_zt=23&_nc_ht=scontent.fabb1-2.fna&_nc_gid=MoRpkZjg5NF7lyspdRwjcA&_nc_ss=7b289&oh=00_AQKN-Gba4Wz2KSb-bjZfaUGYqIb20JgAB_ZMCMVhgaxDng&oe=6AA06EA0",
+    image: christianFormationImage,
     alt: "School choir performing in robes inside a historic chapel with stained glass windows.",
   },
   {
@@ -32,8 +33,7 @@ const newsItems = [
     title: "Admissions Information",
     description:
       "Entrance examination and candidate interview are required for admission to ACMGS.",
-    image:
-      "https://scontent.fabb1-2.fna.fbcdn.net/v/t39.30808-6/487854967_1082667067211633_534893828012860021_n.jpg?stp=dst-jpg_tt6&cstp=mx720x481&ctp=s720x481&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=6hGHdePIIy4Q7kNvwFb5qZA&_nc_oc=AdrshJg6UklqMh5UFd9XBd5EczZsNJdfNNmht1Rv9Sq8fxDP9NCBsF-OSVSd2TYflOhK-BHD6RS37X5K4aUrb6q_&_nc_zt=23&_nc_ht=scontent.fabb1-2.fna&_nc_gid=8oteSqJgnALGwyd7MRT2IQ&_nc_ss=7b289&oh=00_AQKTU07ffBb0b_BNaPc630T-83kmytM_ULIpjOen2H63Gg&oe=6AA07296",
+    image: buildingImage,
     alt: "Female student athlete serving a tennis ball on an outdoor court.",
   },
 ];

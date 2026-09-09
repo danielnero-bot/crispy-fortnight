@@ -45,7 +45,6 @@ export default function Footer({
       // Stagger the brand and link columns upward as the footer enters view.
       gsap.from(columnsRef.current.filter(Boolean), {
         y: prefersReducedMotion ? 0 : 44,
-        autoAlpha: 0,
         duration: prefersReducedMotion ? 0.01 : 0.65,
         ease: "power2.out",
         stagger: prefersReducedMotion ? 0 : 0.1,

@@ -11,6 +11,8 @@ import DashboardPage from "./pages/DashboardPage";
 import TeacherResultsPage from "./pages/TeacherResultsPage";
 import StudentResultsPage from "./pages/StudentResultsPage";
 import CheckResultPage from "./pages/CheckResultPagee";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+
 
 function App() {
   return (
@@ -54,6 +56,7 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
